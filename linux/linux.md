@@ -60,29 +60,36 @@ root用户
   * 修改文件：`vim fileName` 非编辑模式 i/a 进入编辑模式，ESC键退出编辑模式；`:wq`保存退出   `:q!`强制退出
   * 删除文件：`rm -rf fielName`
   * 查看文件：`cat/more/less/head/tail fileName`
-    * `cat fileName` 一次性查看文本内容
+
+    * `cat  fileName` 一次性查看文本内容
     * `more fileName` 分屏查看文本内容
     * `less fileName` 关键字查找文本内容
-    * `head fileName` 查看文本前10行内容
+    * `head -n 10 fileName` 查看文本前10行内容
     * `tail -100f fileName` 动态查看最新100行记录
   * 文件复制/剪切
+
     * 复制： `cp -R 源路径 目标路径` 复制文件夹以及里面的内容要加 -R 参数
     * 剪切：`mv 源路径 目标路径`
   * 文件压缩解压 zip/tar 格式
+
     * zip压缩：`zip 压缩后文件.zip  源文件1  源文件2`
     * zip解压缩：`unzip fileName.zip`
     * tar压缩：`tar -zcvf fielName.tar.gz 源文件1 源文件2 源文件3`
     * tar解压缩：`tar -zxvf fileName.tar.gz`
   * 文件内容截取 cut
+
     * 举例：`cut -d ":" -f 1 fileName`
       * -d ":" 内容分割符号为":"
       * -f n 显示分割后内容的列
   * 动态输入文本内容：tee -a fileName
+
     * 管道（|）:将多个命令进行组合,将前一个命令的输出，作为后一个命令的输入；
     * 和管道（|）一起使用；`cat fileName | tee -a fileName`
   * 根据关键字查找文本：grep
+
     * `grep -i "keyWord" fileName`
   * grep：文本查找
+
     * -i：忽略大小写
     * -n：显示行号
     * -v：反向查找内容，查找非关键词的内容
@@ -90,6 +97,7 @@ root用户
     * -A num：向后多显示num行
     * -B num：向前多显示num行
   * sed：批量文本替换
+
     * 模糊查找关键字： `sed -i 's/log/exe/g' user.log`
     * 以关键字开头：`sed -i 's/^log/.exe/g' user.log`
     * 以关键字结尾：`sed -i 's/.log$/.exe/g' user.log`
@@ -104,16 +112,42 @@ root用户
     * 多命令执行 -e
       `sed -e 's/user/user1/g' -e 's/linux/linux1/g' user.log`
   * awk：数据格式处理
+
     * 按照分隔符进行数据分割，并打印：
       `awk -F ":" '{print $1,$3}' passwd`
     * 对数据进行数据运算 (+   -    *   /)，(且：&&，或：||),条件判断、循环
       `awk -F ":" '(NR>2&&NR<6){sum+=$3;print $3,sum}' passwd`
   * grep、sed、awk的区别
+
     * grep侧重关键词查找
     * sed侧重文本修改
     * awk侧重内容提取计算
   * vim
-    * ![1754640063984](image/linux/1754640063984.png)
+
+    | 操作             | 解释                                             |
+    | ---------------- | ------------------------------------------------ |
+    | h,j,k,l          | 分别代表光标向：左下上下移动一个字符             |
+    | ^                | 去到光标所在行的行首(第一个非空字符)             |
+    | $                | 去到光标所在行的行尾                             |
+    | gg               | 去到第一行的行首                                 |
+    | G                | 去到最后一行的行首                               |
+    | #G               | 指定去到第#行的行首(#为具体的数字)               |
+    | yy               | 复制光标所在的行                                 |
+    | #yy或y#y         | 从光标所在行向下复制#行(#为具体的数字)           |
+    | p                | 从光标所在行的下一行开始粘贴(如果按行复制的内容) |
+    | dd               | 删除光标所在的行                                 |
+    | #dd或d#d         | 从光标所在行向下删除#行(#为具体的数字)           |
+    | dw               | 删除光标所在的单词                               |
+    | x                | 删除光标所在的字符                               |
+    | u                | 撤销操作                                         |
+    | /关键字          | 从光标所在处向后查找关键字                       |
+    | :set nu          | 显示行号                                         |
+    | :set nonu        | 取消显示行号                                     |
+    | :set ic          | 忽略大小写                                       |
+    | :%s/test/linux/g | 查找替换，全文查找test并将其替换成linux          |
+    | :wq              | 保存退出                                         |
+    | :q!              | 强制退出                                         |
+    | ESC              | 切换到命令模式                                   |
 
 ## 用户管理
 
