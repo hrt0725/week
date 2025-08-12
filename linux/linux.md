@@ -87,7 +87,7 @@ root用户
     * 和管道（|）一起使用；`cat fileName | tee -a fileName`
   * 根据关键字查找文本：grep
 
-    * `grep -i "keyWord" fileName`
+    * `grep "keyWord" fileName`
   * grep：文本查找
 
     * -i：忽略大小写
