@@ -235,6 +235,13 @@ root用户
   * 查看网络连通：`ping ip|域名`
   * 查看端口：`netstat`
   * 查看路由：`route`
+  * 防火墙关闭：
+    * 查看防火墙：`systemctl status firewalld`
+    * 关闭防火墙：`systemctl stop firewalld`
+    * 启动防火墙：`systemctl start firewalld`
+    * 重启防火墙：`systemctl restart firewalld`
+  * 关机：`shutdown -h now`
+  * 重启： `reboot`
 * 磁盘管理
   * 查看系统信息：`uanme -a`
   * 查看主机名：`hostname`
@@ -275,6 +282,7 @@ root用户
       * 新建php文件
       * ip地址访问php文件
   * 防火墙放行80端口
-    * 放行80端口：`firewall-cmd --zone=public --add-port=80/tcp --permanent`
+    * 临时放行：`firewall-cmd --add-port=80/tcp`
+    * 永久放行80端口：`firewall-cmd --zone=public --add-port=80/tcp --permanent`
     * 重新加载防火墙：`firewall-cmd --reload`
     * 验证端口是否已开放：`firewall-cmd --list-ports`
