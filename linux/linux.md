@@ -276,3 +276,4 @@ root用户
     * 放行80端口：`firewall-cmd --zone=public --add-port=80/tcp --permanent`
     * 重新加载防火墙：`firewall-cmd --reload`
     * 验证端口是否已开放：`firewall-cmd --list-ports`
+    *
