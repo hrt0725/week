@@ -243,7 +243,7 @@ root用户
   * 关机：`shutdown -h now`
   * 重启： `reboot`
 * 磁盘管理
-  * 查看系统信息：`uanme -a`
+  * 查看系统信息：`uname -a`
   * 查看主机名：`hostname`
   * 查看当前路径每个文件大小：`du -h`
   * 查看整个系统磁盘使用情况：`df -h`
