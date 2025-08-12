@@ -272,8 +272,9 @@ root用户
       * `systemctl start httpd`
     * 验证：
       * 找到www的路径
+      * 新建php文件
+      * ip地址访问php文件
   * 防火墙放行80端口
     * 放行80端口：`firewall-cmd --zone=public --add-port=80/tcp --permanent`
     * 重新加载防火墙：`firewall-cmd --reload`
     * 验证端口是否已开放：`firewall-cmd --list-ports`
-    *
