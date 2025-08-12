@@ -187,4 +187,4 @@ root用户
 改权限
 
 * chown 更改文件所有者 `chown user filename`
-* chgrp 更改文件所属组 `chgrp zhangssan cpFile.sh`
+* chgrp 更改文件所属组 `chgrp dev cpFile.sh`
