@@ -227,8 +227,8 @@ root用户
   * 关闭服务：`systemctl stop network`
   * `service network status|restart|stop`
   * 服务自启动：`enable|disable`
-    * `statemctl enable network`：设置开机自启
-    * `statemctl disable network`：关闭开机自启
+    * `systemctl enable network`：设置开机自启
+    * `systemctl disable network`：关闭开机自启
     * `chkconfig network on|off`：系统命令设置服务自启动：on/off
 * 网络管理
   * 查看ip：ifconfig  / ip addr
@@ -286,3 +286,66 @@ root用户
     * 永久放行80端口：`firewall-cmd --zone=public --add-port=80/tcp --permanent`
     * 重新加载防火墙：`firewall-cmd --reload`
     * 验证端口是否已开放：`firewall-cmd --list-ports`
+
+## 数据库安装
+
+* 安装：
+  * `yum -y install mariadb-server mariadb`
+* 启动：
+  * `systemctl start mariadb`
+* 安装引导：
+  * `mysql_secure_installaction`
+* 访问：
+  * `mysql -u root -p`
+* 修改权限
+  `grant all privileges on *.* to 'root'@'%' with grant option;`
+  `grant all privileges on *.* to 'root'@'%' identified by '123456';`
+  `flush privileges;`
+
+## LAMP环境搭建（linux+Apache+Mysql+PHP）
+
+* 安装Apache---httpd
+
+  ```
+  yum install -y httpd httpd-devel
+  ```
+* 安装MySQL---MariaDB
+
+  ```
+  yum install -y mariadb-server mariadb
+  ```
+* 安装php
+
+  ```
+  yum install -y php
+  ```
+
+  `yum install -y php-mysql php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap curl curl-devel php-bcmath`
+* 重启服务
+  `systemctl restart httpd`
+* 项目部署：项目源码放在/var/www/html
+
+  * 解压源码包
+    * `unzip xxx.zip`
+    * `tar -zxvf xxx.tar.gz`
+  * 修改权限
+    * `chmod -R 777 xxx`
+  * 浏览器访问
+    * 本地浏览器访问服务器：ip/projectName
+
+## 源码安装lrzsz文件上传下载工具
+
+* 下载并解压
+  * 下载：`wget https://cdn.netsarang.net/10aefc08/Xftp-8.0.0084p.exe`
+  * 解压缩：tar -zxvf  xxx.tat.gz
+* 安装
+  * 配置：`./configure --prefix=/usr/local/lrzsz`
+  * 编译：`make`
+  * 安装：`make install`
+* 建立连接：
+  * `cd /usr/bin`
+  * `ln /usr/local/lrzsz/bin/lrz rz`
+  * `ln /usr/local/lrzsz/bin/lsz sz`
+* 使用：
+  * 上传：`rz`
+  * 下载：`sz fileName`
