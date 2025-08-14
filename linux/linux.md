@@ -349,3 +349,217 @@ root用户
 * 使用：
   * 上传：`rz`
   * 下载：`sz fileName`
+
+## linux/shell
+
+输入输出
+
+* 输出：echo
+  * `echo "hello world"`
+  * 让特殊字符转义生效：`echo -e "hello`
+* 输入：read name age
+  * `echo `
+  * `echo "my name is `
+  * `read -p "提示信息" name`
+* 常见变量
+  * 用户变量：对应用户会话中生效
+    * 变量定义：`name="thr"`
+    * 查看变量：`set | grep varname`
+    * 清除变量：`unset varname`
+    * 使用变量：`echo $varname `
+  * 系统变量
+    * 定义变量：`export varname='tom'`
+    * 使用变量：`echo ${varname}`
+    * 清除变量：`unset varname`
+    * 使用变量：`env | grep varname`
+  * 特定变量
+    * $*：接收传入的所有值；
+    * $@：同\$*
+    * $#：传入参数的个数
+    * $?：判断上一个命令执行结果的判断，0：执行成功；非0：执行失败；
+    * $\$：当前任务执行的进程id；
+  * 位置变量
+    * $1-\$9：接收脚本执行时，以空格分割传入的9个参数值
+  * 变量定义
+    * name='harry'
+
+流程控制
+
+* if条件判断
+* 文件测试
+
+  * -f 判断是否是普通文件
+  * -d 判断是否是目录
+  * -e 判断文件或目录是否存在
+  * -s 判断文件是否为空
+* 字符测试
+
+  * `=`，`!=`，\\>，\\<
+  * [ "$var1" \\>  \"\$var2\" ]
+* 数字测试
+
+  * `-eq，-ne，-gt，-lt`
+  * `[ 22 -gt 21]`
+* 多条件测试
+
+  * -a / -o
+
+    * `[ -f test.txt -a test.txt ]`
+    * `[ "abc" `
+  * && / ||
+
+    * `[ [ "abc" \> "abb" && 123 -ne 231 ] ]`
+    * `[ 11-gt 12 ] || [ "ab" != "ac" ]`
+  * 语法
+
+    ```
+    if 条件1 then
+    	语句1;
+    elif	条件2 then
+    	语句2;
+    else
+    	语句3;
+    fi
+    ```
+
+    ```bash
+    #!/bin/bash
+    read -p "Input file name:" fileName;
+    if [ -e $fileName ];then
+       echo "文件存在";
+       if [ -f $fileName ];then
+          echo "是普通文件";
+       elif [ -d $fileName ];then
+          echo "是目录";
+       else
+          echo "是其它文件";
+       fi
+       else
+         echo "文件不存在";
+    fi
+    ```
+* case条件选择
+
+  ```bash
+  case $var in
+  "a")
+  	#语句命令
+  	;;
+  "b")
+  	#语句命令
+  	;;
+  "c")
+  	#语句命令
+  	;;
+  *)
+  	#语句命令
+  	;;
+  esac
+  ```
+
+  ```bash
+  #!/bin/bash
+  a=$2;
+  b=$3;
+  case $1 in
+  "add")
+          echo "`expr $a + $b`"
+          echo "`expr $a + $b`"
+          ;;
+  "sub")
+          echo "`expr $a - $b`"
+          ;;
+  "mul")
+          echo "`expr $a \* $b`"
+          ;;
+  "div")
+          echo "`expr $a \/ $b`"
+          ;;
+  *)
+          echo "无法计算";
+  esac
+  ```
+* for循环控制
+
+  ```bash
+  #!/bin/bash
+  count=0;
+  #for i in 1 2 3 4
+  #for i in hello world
+  #for i in `ls ./`
+  #for i in {1..100..1}
+
+  for i in $(seq 1 1 10)
+  do
+    #echo "$i";   
+    #expr $((count++)); 
+    if [ `expr $i \% 2` -eq 0 ];then
+      echo "$i是偶数"
+    else
+      echo "$i是奇数"
+    fi
+  done
+  echo $count;
+  ```
+* while循环
+
+  * 条件成立就执行do......done,直到条件不成立
+    ```bash
+    while 条件
+    do
+    	命令语句;
+    done
+    ```
+* until循环
+
+  * 条件不成立就执行do......done,直到条件成立
+
+    ```bash
+    until 条件
+    do
+    	命令语句;
+    done
+    ```
+
+    ```bash
+    #!/bin/bash
+    i=0;
+    n=10;
+    #while [ $i -lt $n ]
+    until [ $i -eq $n ]
+    do
+      i=$((i+1));
+      if [ $i -eq 5 -o $i -eq 7 -o $i -eq 9 ];then
+         continue;
+      fi
+      echo "第$i次循环：$i";
+    done
+    ```
+
+## 定时任务
+
+* 定时任务：crondtab
+  * 查看定时任务：`crondtab -l`
+  * 编辑定时任务：`cronotab -e`
+  * 定时任务组成：* * * * *  /home/shell/hi.sh
+    * 分：0-59
+    * 时：0-23
+    * 日：1-31
+    * 月：1-12
+    * 星期：0-6
+    * 时间表示：
+      * 单个指定时间：具体数值
+      * 多个指定时间：时间值以逗号分割：1，3，5；
+      * 区间范围：数值直接用  -  连接：3-7；
+      * 每隔多长时间：分钟 */5：每隔5分钟；
+    * 任务内容：shell脚本带绝对路径；
+* 临时任务：at
+* 后台任务：&
+
+## 重定向
+
+* 输出重定向 > ： 命令 > fileName
+* 输出追加重定向 >> ： 命令 >> fileName     输出内容不覆盖fileName原有内容;
+* 输出错误重定向 2>：命令  2> filename，把执行命令遇到的错误信息保存到fileName；
+* 所有输出重定向：命令 1> fileName 2>&1，同时把输出和错误都保存到fileName;
+* 输入重定向 <：命令<fileName，把文件内容作为命令的输入；
