@@ -207,7 +207,7 @@ root用户
 * find -mtime：根据文件修改时间查找 + 1：超过一天；-1：一天内
   * `find /home -mtime +1 -user ls`
 
-系统管理
+## 系统管理
 
 * 进程管理
   * 查看进程：
@@ -233,7 +233,8 @@ root用户
 * 网络管理
   * 查看ip：ifconfig  / ip addr
   * 查看网络连通：`ping ip|域名`
-  * 查看端口：`netstat`
+  * 查看端口：`netstat -tulnp`
+    * `lsof -i :80`
   * 查看路由：`route`
   * 防火墙关闭：
     * 查看防火墙：`systemctl status firewalld`
@@ -245,7 +246,7 @@ root用户
 * 磁盘管理
   * 查看系统信息：`uname -a`
   * 查看主机名：`hostname`
-  * 查看当前路径每个文件大小：`du -h`
+  * 查看当前路径每个文件大小：`du -ah`
   * 查看整个系统磁盘使用情况：`df -h`
   * 硬盘挂载：`mount /dev/sad3 /data`
   * 写在硬盘：`umount /data`
@@ -554,7 +555,12 @@ root用户
       * 每隔多长时间：分钟 */5：每隔5分钟；
     * 任务内容：shell脚本带绝对路径；
 * 临时任务：at
+  * `at -f  ./shell.sh 11:40`
+  * `at -l`：查看临时任务表
+  * `at -r id`：取消任务
+  * `at 3:30pm tomorrow`  结束用CTRL+D
 * 后台任务：&
+  * 命令后面加上&，让命令在后台执行；
 
 ## 重定向
 

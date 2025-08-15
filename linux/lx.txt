@@ -1,0 +1,13 @@
+练习：
+1、查看/etc/passwd 内容并将内容重定向到 user.txt文件；
+2、查看系统内存 把内容重定向到 memory.log
+3、全盘查找.log 文件 并将正确内容备份到log_info.txt ,错误信息保存到 log_error.txt 
+4、启动MySQL服务，查看MySQL的进程，并将进程的结束掉；
+5、查找应用端口号为80的程序，并将进程的强制结束；
+6、对以下文档内容输入到user.txt,对内容分割并获取第1、4列的内容；
+name sex age address
+harry boy 18 成都
+tom giry 22 上海
+lucy girl 23 北京
+7、查看系统是否已经安装MySQL，将查询的结果保存在/home/install_rpm.log 
+8、获取系统的磁盘使用情况，并将结果保存在/home/disk_used.log 对结果进行分割获取free的数据列；
