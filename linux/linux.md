@@ -209,84 +209,94 @@ root用户
 
 ## 系统管理
 
-* 进程管理
-  * 查看进程：
-    * 查看当前系统进程：`ps -ef`
-    * 查看所有用户执行的进程：`ps -aux`
-  * 动态查看进程（实时查看）
-    * top 实时更新查看进程
-  * 结束进程：kill
-    * `kill pid`
-    * `kill -9 pid`：强制结束
-  * 查看内存
-    * free：当前查看
-    * top：动态查看
-* 服务管理：systemctl / service（centos 6.5以前版本）
-  * 查看服务：`systemctl status network`
-  * 启动服务：`systemctl start|restart network`
-  * 关闭服务：`systemctl stop network`
-  * `service network status|restart|stop`
-  * 服务自启动：`enable|disable`
-    * `systemctl enable network`：设置开机自启
-    * `systemctl disable network`：关闭开机自启
-    * `chkconfig network on|off`：系统命令设置服务自启动：on/off
-* 网络管理
-  * 查看ip：ifconfig  / ip addr
-  * 查看网络连通：`ping ip|域名`
-  * 查看端口：`netstat -tulnp`
-    * `lsof -i :80`
-  * 查看路由：`route`
-  * 防火墙关闭：
-    * 查看防火墙：`systemctl status firewalld`
-    * 关闭防火墙：`systemctl stop firewalld`
-    * 启动防火墙：`systemctl start firewalld`
-    * 重启防火墙：`systemctl restart firewalld`
-  * 关机：`shutdown -h now`
-  * 重启： `reboot`
-* 磁盘管理
-  * 查看系统信息：`uname -a`
-  * 查看主机名：`hostname`
-  * 查看当前路径每个文件大小：`du -ah`
-  * 查看整个系统磁盘使用情况：`df -h`
-  * 硬盘挂载：`mount /dev/sad3 /data`
-  * 写在硬盘：`umount /data`
-  * 磁盘分区：`fdisk /dev/sda`
-* 环境搭建
-  * 安装器：yum；从系统镜像源下载并安装
-    * 安装：`yum -y install`
-    * 卸载：`yum -y remove`
-    * 更新软件：`yum -y updata`
-    * 换源：`wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo`
-    * 清空所有缓存：`yum clean all`
-    * 生成新的元数据缓存：`yum makecache`
-    * 查看启用的yum源：`yum repolist enable`
-  * 源码安装：make；从软件官网下载源码进行编译安装
-    * 下载源码包：`wget http://.../..../abc.tar.gz`
-    * 解压源码包：`tar -zxvf  abc.tar.gz`
-    * 配置路径：`./configure --perfix=/user/local/abc`
-    * 编译：`make`
-    * 安装：`make install`
-  * 二进制安装：rpm；从软件官网下载已经打包好的软件，进行安装
-    * 下载rpm二进制包：curl http://..../....abc.rpm
-    * 安装：`rpm -ivh abc.rpm`
-    * 卸载：`rpm -e packageName`
-    * 查看安装列表：`rpm -l`
-    * 查看已安装软件：`rpm -qa packageName`
-  * web服务安装（httpd）
-    * httpd安装：
-      * `yum install -y httpd httpd-devel php`
-    * 查看并启动服务：
-      * `systemctl status httpd`
-      * `systemctl start httpd`
-    * 验证：
-      * 找到www的路径
-      * 新建php文件
-      * ip地址访问php文件
-  * 防火墙放行80端口
-    * 临时放行：`firewall-cmd --add-port=80/tcp`
-    * 永久放行80端口：`firewall-cmd --zone=public --add-port=80/tcp --permanent`
-    * 重新加载防火墙：`firewall-cmd --reload`
-    * 验证端口是否已开放：`firewall-cmd --list-ports`
+### 进程管理
+
+* 查看进程：
+  * 查看当前系统进程：`ps -ef`
+  * 查看所有用户执行的进程：`ps -aux`
+* 动态查看进程（实时查看）
+  * top 实时更新查看进程
+* 结束进程：kill
+  * `kill pid`
+  * `kill -9 pid`：强制结束
+* 查看内存
+  * free：当前查看
+  * top：动态查看
+  * vmstat：查看内存
+
+### 服务管理：systemctl / service（centos 6.5以前版本）
+
+* 查看服务：`systemctl status network`
+* 启动服务：`systemctl start|restart network`
+* 关闭服务：`systemctl stop network`
+* `service network status|restart|stop`
+* 服务自启动：`enable|disable`
+  * `systemctl enable network`：设置开机自启
+  * `systemctl disable network`：关闭开机自启
+  * `chkconfig network on|off`：系统命令设置服务自启动：on/off
+
+### 网络管理
+
+* 查看ip：ifconfig  / ip addr
+* 查看网络连通：`ping ip|域名`
+* 查看端口：`netstat -tulnp`
+  * `lsof -i :80`
+* 查看路由：`route`
+* 防火墙关闭：
+  * 查看防火墙：`systemctl status firewalld`
+  * 关闭防火墙：`systemctl stop firewalld`
+  * 启动防火墙：`systemctl start firewalld`
+  * 重启防火墙：`systemctl restart firewalld`
+* 关机：`shutdown -h now`
+* 重启： `reboot`
+
+### 磁盘管理
+
+* 查看系统信息：`uname -a`
+* 查看主机名：`hostname`
+* 查看当前路径每个文件大小：`du -ah`
+* 查看整个系统磁盘使用情况：`df -h`
+* 硬盘挂载：`mount /dev/sad3 /data`
+* 写在硬盘：`umount /data`
+* 磁盘分区：`fdisk /dev/sda`
+
+## 环境搭建
+
+* 安装器：yum；从系统镜像源下载并安装
+  * 安装：`yum -y install`
+  * 卸载：`yum -y remove`
+  * 更新软件：`yum -y updata`
+  * 换源：`wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo`
+  * 清空所有缓存：`yum clean all`
+  * 生成新的元数据缓存：`yum makecache`
+  * 查看启用的yum源：`yum repolist enable`
+* 源码安装：make；从软件官网下载源码进行编译安装
+  * 下载源码包：`wget http://.../..../abc.tar.gz`
+  * 解压源码包：`tar -zxvf  abc.tar.gz`
+  * 配置路径：`./configure --perfix=/user/local/abc`
+  * 编译：`make`
+  * 安装：`make install`
+* 二进制安装：rpm；从软件官网下载已经打包好的软件，进行安装
+  * 下载rpm二进制包：curl http://..../....abc.rpm
+  * 安装：`rpm -ivh abc.rpm`
+  * 卸载：`rpm -e packageName`
+  * 查看安装列表：`rpm -l`
+  * 查看已安装软件：`rpm -qa packageName`
+* web服务安装（httpd）
+  * httpd安装：
+    * `yum install -y httpd httpd-devel php`
+  * 查看并启动服务：
+    * `systemctl status httpd`
+    * `systemctl start httpd`
+  * 验证：
+    * 找到www的路径
+    * 新建php文件
+    * ip地址访问php文件
+* 防火墙放行80端口
+  * 临时放行：`firewall-cmd --add-port=80/tcp`
+  * 永久放行80端口：`firewall-cmd --zone=public --add-port=80/tcp --permanent`
+  * 重新加载防火墙：`firewall-cmd --reload`
+  * 验证端口是否已开放：`firewall-cmd --list-ports`
 
 ## 数据库安装
 
