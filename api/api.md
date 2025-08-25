@@ -160,9 +160,9 @@
        pm.expect(jsondata.data.err_code).to.be.a("number")
   })
   ```
-* 验证同一层级下的字段是否存在
+* 验证同一层级下的字段是否存在 
 
-  ```javas
+  ```javascript
   pm.test("验证相应体中指定的字段存在",function (){
       pm.expect(pm.response.json().data).to.have.include.keys(["err_msg","err_code"])
   })
