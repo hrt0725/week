@@ -160,7 +160,7 @@
        pm.expect(jsondata.data.err_code).to.be.a("number")
   })
   ```
-* 验证同一层级下的字段是否存在 
+* 验证同一层级下的字段是否存在
 
   ```javascript
   pm.test("验证相应体中指定的字段存在",function (){
@@ -168,6 +168,17 @@
   })
   ```
 * postman接口关联pre-request
+
+  * 对依赖的接口使用sendReqest()发送请求；
+    * url
+    * methed
+    * body
+      * mode：'raw'
+      * raw：JSON.stringify()中填写以来接口的请求参数；
+  * 对依赖接口返货的结果设置为环境变量
+    * 获取需要关联的字段结果：pm. response.json().字段名
+    * 设置环境变量pm.environment.set()：设置环境变量时，变量名不要与已存在的变量名冲突。
+    * 接口关联：在当前接口的请求参数中，使用{{}}把变量引用进来。
 
   ```javascript
   try {
@@ -192,6 +203,105 @@
   }
 
   ```
+
+**参数化：CSV参数化：**
+
+* 接口用例所需要的参数在CSV文件中用逗号分割，
+* Postman参数中使用{0}引l用CSV中第一行的变量名；
+* 断言中，使用pm.iterationData.get("varName")
+
+**newman接口测试报告**
+
+* newman安装：
+  * 安装node.js
+  * 安装newman：`npm install -g newman`
+  * 安装reporthtml：`npm install -g report-html-export`
+  * 检查安装：`newman -v`
+* newman使用：
+  * 从postman中到处批量执行的用例集合和环境数据；
+  * 在cmd命令执行：`newman run`
+    * `-n 5`：迭代次数
+    * `-e 环境数据.json`
+    * `-d 请求参数数据文件.csv`
+    * `-r html`导出生成报告的格式；
+    * `--reporters html`
+    * `--reporter-html-export filename`
+
+**接口Mock**
+
+* 概念：在对某个接口进行测试时，该接口尚未实现或无法使用，可以通过Mock模拟该接口的输入和输出，使用输出的结果进行后续接口的测试；
+* Mock接口过程：创建接口Mock服务；->输入模拟的请求参数和响应结果报文；->接口调用
+
+**Fiddle抓包**
+
+* 作用：在UI或接口出现错误的情况下，抓取分析请求的参数和返回的报文是否与需求一致，分析和定位Bug；
+
+分析问题
+
+* 请求类型：Post请求，Get请求
+* 应答码：2xx成功，3xx重定向，4xx客户端错误，5xx服务器错误。
+* 请求地址：Host + URL
+
+**Insector解析：**
+
+* request请求：
+  * header请求头
+    * 请求方式，请求地址，请求协议
+    * 请求头信息：
+  * 请求内容：TextView，WebForm，Row，Json
+* response响应
+  * 响应报文：TextView，WebForm，Row，Json
+
+Composer发送请求
+
+* 对请求地址、接口重新发送请求验证响应结果；
+
+**Filters请求过滤**
+
+* 使用Host过滤
+  * 内网过滤：show intranet 显示内网，show internet 显示外网
+  * 隐藏或显示指定的Host过滤：列出需要显示或者隐藏的Host的IP地址或者域名地址，多个以分号分隔；
+* 使用响应内容过滤
+  * 通过响应应答码过滤
+  * 通过响应内容的类型和大小过滤
+
+**AutoResponser响应拦截**
+
+* 对满足规则的的请求进行拦截，并返回指定的内容；
+
+**请求信息的筛选QuickExec**
+
+* 关键词查找筛选：?keyword
+* 内容大小的筛选：>1000     <400
+* 响应应答码筛选：=200
+* Host名称筛选：@hostname
+* 文件类型筛选：select类型：select image|css|html
+* 打断点：
+  * bpafter：对请求响应内容的进行断点；
+    * bpafter + 关键词 进行拦截；
+    * bpafter 放行
+  * bps：响应状态码进行断点；
+    * bps+状态码    进行拦截
+    * bps  放行
+  * bpm/bpv：请求方式进行断点
+    * bpm+请求方式进行拦截
+    * bpm  放行
+  * bpu：请求URL进行断点
+    * bpu + 路径   进行拦截
+    * bpu 放行
+  * 其它命令
+    * cls/clear 清除记录
+    * help 查看帮助文档
+    * g/go放行断点
+
+**代理使用-移动端：**
+
+* 移动端和Fiddle所在的电脑处于同一网络；
+* Fiddle设置：Tool->options->勾选 "allow Remote Computes to connect"，设置端口号：8000以上；
+* 设置代理：移动端连接同一WIFI，并设置代理：IP地址（Fiddle所在电脑的局域网ip地址），端口号；
+* 下载并安装证书：移动端的浏览器访问：ip地址+端口号；下载Fiddle安全证书；
+* 安装证书：移动端系统自带的“安装证书"/"CA证书安装"；
+* 使用抓包：移动端浏览器或者app访问，Fiddle验证捕获数据；
 
 **HTTP请求应答码**
 
