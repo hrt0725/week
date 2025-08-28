@@ -105,7 +105,7 @@
 
 * 获取请求响应结果
 
-  * `pm.response.test()` 请求报文以字符串形式获取
+  * `pm.response.text()` 请求报文以字符串形式获取
   * `pm.response.json()` 请求报文以json格式获取
   * `pm.expect(pm.response.code).to.be.oneOf([201, 202]);`
 * 请求应答码200
