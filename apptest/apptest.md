@@ -143,3 +143,103 @@
 * Charles模拟弱网
   * 设置弱网选项
     Proxy > Throttle Settings
+
+**AdbMonkey 稳定性测试**
+
+**环境搭建**
+
+* Java JDK安装
+  * 安装版本要求：1.8以上
+  * 配置环境变量：
+    * `%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin`
+    * `;%JAVA_HOME%\lib\dt. jar ;%JAVA_HOME%\1ib\tools. jar`
+* Android SDK安装
+  * 直接下载Android SDK
+  * 通过Android studio，下载AndroidSDK
+  * 配置环境变量
+    * adb配置环境变量：D:Android\Android_SDK\platform-tools加入系统环境变量path
+    * aapt命令环境变量配置；D:\Android\Android_SDK\build-tools\36.0.0
+* 模拟或真机
+  * 模拟器
+    * Android模拟：Genymotion、夜神模拟器、逍遥安卓模拟器、雷电模拟  器、、腾讯手游助手、AVDManager.exe、天天模拟器
+    * iphone模拟器电脑版、、iphone手游模拟器电脑版、ios模拟器、  BlueStacks模拟器
+  * 真机
+    * 数据线连通电脑和手机；
+    * 手机权限设置允许外部访问；
+
+adb常用命令
+
+* db devices 查看链接设备，默认设备会自动连接;
+* adb connect 设备名/IP:端口
+  * adb connect 127.0.0.1:5555
+  * 常见模拟器的默认端口号5555；夜神模拟：62001/52001；逍遥模拟器：21503；
+* adb disconnect 断开连接
+  ```
+  adb connect 127.0.0.1:21503
+  adb disconnect 127.0.0.1:21503
+  ```
+* adb shell 命令行进入模拟
+* adb push 本地上传文件到模拟器
+  * adb push 本地路径模拟路径
+* adb pull模拟器下载文件到本地
+  * adb pull模拟器路径本地路径
+* adb push 本地上传文件到模拟器
+* adb install/uninstall包名进行apk包的安装卸载
+  * db install-r C:\Users\93166\Downloads\fqmfxs68732.apk
+  * db uninstall com.dragon.read
+* 查看包名：aapt dump badging C:\Users\93166\Downloads\fqmfxs68732.apk
+* 找已安装应用包名
+  * `adb shell pm list package | findstr "tencent"`
+* 保存截图
+  * 保存到模拟器： `adb shell screencap -p "/sdcard/aa.png"`
+  * 保存到本地： `adb exec-out screencap -p > d:/aa.png`
+
+**adb shell monkey命令**
+
+完整命令格式；
+
+`adb shell monkey 基础参数 事件参数 调试参数 1000 > 日志路径 2>&1 &`
+
+* 基础参数
+  * -p packagename1 [-p packagename2]
+  * -s 12   ->  回归测试复现Bug
+  * -v -v -v    ->   日志详细级别
+  * --throttle 300  ->  操作延时单位毫秒
+  * n     1000   操作事件的次数
+* 事件参数：怎加特定操作行为占比；
+  * 触摸事件：--pct-touch 10       点击事件
+  * 滑动事件：--pct-motion      滚动、滑动操作
+  * 轨迹事件：--pct-trackball       拖拽操作
+  * 按键事件：--pct-syskeys         返回键、home键
+  * 导航事件：--pct-nav        导航菜单
+* 调试参数：确保稳定性测试执行完成，不被中断；
+  * 忽略崩溃：--ignore-crashes
+  * 忽略超时：--ignore-timeouts
+  * 忽略安全异常：--ignore-security-exceptions
+  * 关闭异常进程：--kill-process-after-error
+
+**monkey稳定性测试策略**
+
+* 执行每次压测时，必须设置-s    Seed值，便于进行回归复测重现Bug
+* 单个apk问题测试时，设置忽略异常，便于发现更多业务方面的Bug;
+* 单个apk验收测试时，必须关闭忽略异常（不带忽略异常参数）；
+* 单个apk进行压力测试时，设置更小的延时时间--throttle，比如500ms以下；
+* 多个apk集合测试时，把常用的App设置出来，便于验证App切换交互；
+* 产品交付前，必须使用真机设备进行稳定性测试；
+
+**日志分析**
+
+**错误类型**
+
+* ANR无响应：界面响应超时5s，回调函数超时10s；
+* CRASH崩溃闪退：系统资源耗尽导致，比如内存泄露；
+* Exception异常：代码层面的Bug；
+* Error错误：通常属于功能逻辑问题；
+
+在日志文件中查找关键词：ANR、Crash、Exception、fatal、ForceClosed、Error、Warning；
+
+**adb logcat 抓取系统日志**
+
+* adb logcat输出内容控制台
+* adb logcat > d:/aa/filename.log  输出日志到文件中
+* adb logcat | findstr "keyword" > filename.log    关键字过滤保存到文件；
