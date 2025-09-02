@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>page2</title>
+</head>
+
+<body>
+    <form method="get" action="/register" style="display:flex;justify-content:center;">
+        <table border="1" style="border-collapse: collapse;text-align: center;">
+            <tr>
+                <th colspan="2">用户注册</th>
+            </tr>
+            <tr>
+                <th>用户名</th>
+                <td><input name="username" type="text" placeholder="请输入用户名" class="dinput">
+                </td>
+            </tr>
+            <tr>
+                <th>密码</th>
+                <td><input name="password" type="password" placeholder="请输入密码" class="dinput">
+                </td>
+            </tr>
+            <tr>
+                <th>确认密码</th>
+                <td><input type="password" placeholder="请确认密码" class="dinput"></td>
+            </tr>
+            <tr>
+                <th>邮箱</th>
+                <td><input name="email" type="email" placeholder="请输入邮箱" class="dinput"></td>
+            </tr>
+            <tr>
+                <th>电话</th>
+                <td><input name="phonenumber" type="tel" placeholder="请输入电话" class="dinput"></td>
+            </tr>
+            <tr>
+                <th>出生日期</th>
+                <td><input name="birthdate" type="date"></td>
+            </tr>
+            <tr>
+                <th>头像</th>
+                <td><input name="avatar" type="file" accept=".jpg,.jpeg,.png"></td>
+            </tr>
+            <tr>
+                <th>性别</th>
+                <td>
+                    男：<input name="gender" value="man" type="radio">
+                    女：<input name="gender" value="woman" type="radio">
+                    保密：<input name="gender" value="unknow" checked type="radio">
+                </td>
+            </tr>
+            <tr>
+                <th>爱好</th>
+                <td>
+                    足球：<input name="aihao" value="zuQ" type="checkbox">
+                    台球：<input name="aihao" value="taiQ" type="checkbox">
+                    排球：<input name="aihao" value="paiQ" type="checkbox">
+                </td>
+            </tr>
+            <tr>
+                <th>自我介绍</th>
+                <td>
+                    <textarea name="selfJS" placeholder="自我介绍...." class="dinput"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>国籍</th>
+                <td style="display:flex;justify-content:center;border: none;">
+                    <select name="nationality" style="outline: none;">
+                        <option value="中国">中国</option>
+                        <option value="美国">美国</option>
+                        <option value="英国">英国</option>
+                        <option value="法国">法国</option>
+                        <option value="德国">德国</option>
+                        <option value="丹麦">丹麦</option>
+                        <option value="意大利">意大利</option>
+                        <option value="俄罗斯">俄罗斯</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="注册">
+                    <input type="reset" value="重置">
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
+
+<style>
+    .dinput {
+        outline: none;
+        min-width: -webkit-fill-available;
+        border: none;
+        margin-left: 5px;
+    }
+</style>
