@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+</head>
+
+
+
+<body>
+    <ul>
+        <li><a href="/">首页</a></li>
+        <li><a href="http://baidu.com" target="_blank">baidu</a></li>
+        <li><a href="http://map.baidu.com" target="_blank">map</a></li>
+        <li><a href="http://news.baidu.com" target="_blank">news</a></li>
+        <li><a href="http://youdao.com" target="_blank">youdao</a></li>
+        <li><a href="/login.html">login</a></li>
+        <li><a href="/page2.html">register</a></li>
+    </ul>
+    <form action="/login" method="post" style="display: flex;justify-content: center;">
+        <table style="border: 1px solid rgb(196, 196, 196);padding: 10px;border-radius: 5px;">
+            <tr>
+                <th colspan="2">用户登录</th>
+            </tr>
+            <tr>
+                <th><label for="username">用户名:</label></th>
+                <td><input type="text" name="username" required></td>
+            </tr>
+            <tr>
+                <th><label for="password">密码:</label></th>
+                <td><input type="password" name="password" required></td>
+            </tr>
+            <tr>
+                <th><label for="captcha">验证码:</label></th>
+                <td><input type="text" name="captcha" required></td>
+                <td><img src="/images/yzm.png" alt="验证码" height="20"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="rememberMe">请保存我这次的登录信息。
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="立即登录">
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
+
+·
+<style>
+    input {
+        outline: none;
+    }
+
+    ul {
+        margin: 50px auto;
+    }
+
+
+    ul li:first-child {
+        border-radius: 5px 0 0 5px;
+    }
+
+    ul li:last-child {
+        border-radius: 0 5px 5px 0;
+    }
+
+    ul li {
+        display: inline;
+        padding: 15px;
+        margin-left: -5px;
+        background-color: #4E6EF2;
+    }
+
+    ul li:hover {
+        background-color: #1c49ff;
+    }
+
+    ul li a {
+        color: white;
+        text-decoration: none;
+    }
+</style>

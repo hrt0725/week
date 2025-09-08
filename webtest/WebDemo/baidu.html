@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baidu simulation</title>
+</head>
+<script src="/js/baidu.js"></script>
+
+<body>
+    <div id="head" style="display: flex;justify-content: space-between;">
+        <div id="link">
+            <ul>
+                <li><a href="https://news.baidu.com/">新闻</a></li>
+                <li><a href="https://www.hao123.com/?src=from_pc">hao123</a></li>
+                <li><a href="https://map.baidu.com/@11582515,3568083,13z">地图</a></li>
+                <li><a href="https://tieba.baidu.com/">贴吧</a></li>
+                <li><a href="https://haokan.baidu.com/?sfrom=baidu-top">视频</a></li>
+                <li><a href="https://image.baidu.com/">图片</a></li>
+                <li><a href="https://pan.baidu.com/?from=1026962h">网盘</a></li>
+                <li><a href="https://wenku.baidu.com/?fr=bdpcindex">文库</a></li>
+                <li><a href="https://chat.baidu.com/search?isShowHello=1&pd=csaitab&setype=csaitab">AI</a></li>
+                <li><a href="https://www.baidu.com/more/">更多</a></li>
+            </ul>
+        </div>
+        <div id="user">
+            <ul>
+                <li>设置</li>
+                <li style="background-color: #4E6EF2;border: 1px;border-radius: 5px;">
+                    <a style="color: aliceblue;" href="/login.html">登录</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="main" style="display: flex;justify-content: center;">
+        <div style="display: flex;flex-direction: column;">
+            <a style="display: contents;" href="/index.html"><img src="/images/baidu.gif" alt="" height="100"
+                    style="margin: auto;"></a>
+            <div id="search">
+                <input id="searchInput" placeholder="纪念抗战胜利80周年">
+                <div>
+                    <div>
+                        <input type="button" value="深度搜索">
+                    </div>
+                    <div>
+                        <img src="/images/file.png" height="25">
+                        <img src="/images/img.png" height="25">
+                        <input type="button" value="百度一下" onclick="searchBtn()">
+                    </div>
+                </div>
+            </div>
+            <div id="lin2">
+                <ul>
+                    <li>百度AI💥复杂问题，就找👉AI助手！</li>
+                    <li>AI生图</li>
+                    <li>AI写作</li>
+                    <li>AI PPT</li>
+                    <li>AI 编程</li>
+                    <li>生成视频</li>
+                </ul>
+            </div>
+            <div id="hotSearch">
+                <div id="hsHead">
+                    <span>🚀百度热搜🚀</span>
+                    <span onclick="hotSearchRef()">🚨换一换</span>
+                </div>
+                <div id="hsMain">
+                    <ol id="hotSearchList">
+                        <!-- <li>习近平发表重要讲话</li>
+                        <li>九三阅兵全程回顾</li>
+                        <li>DF61导弹亮相阅兵场</li>
+                        <li>中国士兵”何以感人心魄</li>
+                        <li>歼20S震撼亮相</li>
+                        <li>东风-5C"液体洲际战略核导弹亮相</li>
+                        <li>最帅变阵！不是电影特效是中国军人</li>
+                        <li>这些先进武器我们也有了</li>
+                        <li>三支兵种首次亮相天安门广场</li>
+                        <li>这是中国人不能忘却的5098天</li> -->
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    * {
+        user-select: none;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    #link ul li a:hover {
+        color: white;
+    }
+
+    ul li {
+        display: inline;
+        margin-right: 5px;
+        font-size: 16px;
+        padding: 0px 3px;
+    }
+
+    ul li:hover {
+        background-color: #4E6EF2;
+        color: aliceblue;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    #search {
+        border: 1px solid #606FFF;
+        height: 100px;
+        padding: 5px;
+        border-radius: 15px;
+    }
+
+    #search input {
+        outline: none;
+        border: none;
+    }
+
+    #searchInput {
+        width: 600px;
+        height: 55px;
+        padding-left: 10px;
+    }
+
+    #search>div {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin: 5px 10px;
+    }
+
+
+    #search>div input:first-child {
+        background-color: white;
+        height: 35px;
+        border: 1px solid #727272;
+        border-radius: 10px;
+    }
+
+    #search>div input:last-child {
+        background-color: #566FF4;
+        height: 35px;
+        color: white;
+        border-radius: 10px;
+    }
+
+    #lin2 {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lin2 ul {
+        padding-left: 0px;
+    }
+
+    #lin2 ul li {
+        font-size: 15px;
+        color: black;
+        background-color: #F2F1FF;
+        padding: 8px;
+        border-radius: 10px;
+        margin-left: 5px;
+    }
+
+    #lin2 ul li:hover {
+        color: #4E6EF2;
+        background-color: #EFF2FE;
+    }
+
+    #hotSearch {
+        margin-top: 30px;
+    }
+
+    #hsHead {
+        font-size: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #hsHead span:hover {
+        cursor: pointer;
+        color: #4E6EF2;
+    }
+
+    #hsMain {
+        display: flex;
+        justify-content: center;
+    }
+
+    #hsMain ol {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 5px;
+        margin-left: 5%;
+        height: 170px;
+    }
+
+    #hsMain ol li {
+        padding: 5px;
+    }
+
+    #hsMain ol li:nth-child(n+6) {
+        margin-left: 150px;
+    }
+
+    #hsMain ol li:hover {
+        color: #7E70FB;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+</style>

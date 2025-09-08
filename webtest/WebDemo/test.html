@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习</title>
+</head>
+
+<body>
+    <script>
+        function sjxyz(a, b, c) {
+            if (typeof a === "number" && typeof b === "number" && typeof c === "number") {
+                if (a + b > c && a + c > b && b + c > a) {
+                    if (a == b && a == c && b == c) {
+                        console.log(`${a}:${b}:${c}->等边三角形`);
+                    } else {
+                        if (a == b || b == c || a == c) {
+                            console.log(`${a}:${b}:${c}->等腰三角形`)
+                        } else {
+                            if ((a * a + b * b == c * c) || (a * a + c * c == b * b) || (b * b + c * c == a * a)) {
+                                console.log(`${a}:${b}:${c}->直角三角形`)
+                            } else {
+                                console.log(`${a}:${b}:${c}->普通三角形`)
+                            }
+                        };
+                    }
+                } else {
+                    console.log(`${a}:${b}:${c}->不能构成三角形`);
+                }
+            } else {
+                console.log(`a或b或c不是数字`);
+            }
+        }
+
+        sjxyz(2, 1, 1);
+        // sjxyz(1, 2, 6);
+        // sjxyz(5, 5, 6);
+        // sjxyz(6, 5, 5);
+        // sjxyz(3, 4, 5);
+        // sjxyz(-1, -1, -3);
+        // sjxyz(-1, -1, 0);
+
+        let i = 0
+        let sum = 0;
+        while (i < 10) {
+            sum += i;
+            i++;
+        }
+        console.log(sum);
+
+        function judgeLevel(level) {
+            switch (level) {
+                case "A":
+                    console.log("----优秀----");
+                    break;
+                case 'B':
+                    console.log("----中等----");
+                    break;
+                case 'C':
+                    console.log("----差----");
+                    break;
+                default:
+                    console.log('----未知等级----');
+                    break;
+            }
+        }
+
+        judgeLevel('A');
+        function getUserInfo() {
+            return {
+                name: "wda",
+                age: 15
+            }
+        }
+        console.log(getUserInfo());
+        for (let index = 0; index < 50; index++) {
+            console.log(Math.floor(Math.random() * 3) + 1);
+        }
+    </script>
+</body>
+
+</html>

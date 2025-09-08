@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 事件</title>
+    <link rel="stylesheet" href="/css/event.css">
+    <script src="/js/event.js"></script>
+</head>
+
+<body>
+    <div class="head">
+        <ul>
+            <li class="menu" name="baidu">百度模拟</li>
+            <li class="menu" name="judge">分数计算</li>
+            <li class="menu" name="jsq">计算器</li>
+            <li class="menu" name="login">登录</li>
+            <li class="menu" name="avatar">头像</li>
+            <!-- <li class="menu" name="runCode">runCode</li> -->
+            <!-- <li class="menu" name="wiki">wiki</li> -->
+            <li class="menu" name="info">详细</li>
+        </ul>
+    </div>
+    <div class="main">
+
+        <div class="pageMain" id="judge">
+            <div style="text-align: center;margin-bottom: 5px;margin-top: -2px;">分数计算(0-100)</div>
+            <input type="number" class="inpt" id="inputCT" oninput="inputChange()">
+            <input type="button" class="btn" onclick="judge()" value="计算">
+            <input type="button" class="btn" onclick="clearResult()" value="清除">
+            <div id="judgeResult">
+                <!-- <p>wd</p> -->
+            </div>
+        </div>
+
+        <div id="baidu" style="display: none;">
+            <iframe src="/baidu.html" frameborder="0" style="width: 100%;height: 90vh;"></iframe>
+        </div>
+
+        <div class="pageMain" id="jsq" style="display: none;">
+            <div style="text-align: center;margin-bottom: 5px;margin-top: -2px;">计算器</div>
+            <input class="inpt" id="jsqInput" type="text">
+            <input class="btn" type="button" value="计算" onclick="jsqBtn()">
+            <div id="jsqResult">
+                <!-- <p>计算结果</p> -->
+            </div>
+        </div>
+
+        <div id="login" class="pageMain" style="display: none;">
+            <div style="text-align: center;margin-bottom: 5px;margin-top: -2px;">登录</div>
+            <form action="/" method="post">
+                <div>
+                    <span style="display: inline-block; width: 50px;">用户名</span>
+                    <span><input class="inpt" id="usernameInput" type="text" required
+                            oninput="userNameOnInput()"></span>
+                    <div style="display: flex;justify-content: center;">
+                        <p id="userNameVaildTip" style="color: red;"></p>
+                    </div>
+                </div>
+                <div style="margin-top: 5px;">
+                    <span style="display: inline-block; width:50px;">密码</span>
+                    <span><input class="inpt" id="passwordInput" type="password" required
+                            oninput="passowrdOnInput()"></span>
+                    <div style="display: flex;justify-content: center;">
+                        <p id="passwordVaildTip" style="color: red;"></p>
+                    </div>
+                </div>
+                <div style="margin-top: 5px;display: flex;flex-direction: row-reverse;gap: 5px;">
+                    <input class="btn" type="reset" value="重置">
+                    <input class="btn" type="submit" value="登录">
+                </div>
+            </form>
+        </div>
+
+        <div id="avatar" class="pageMain" style="display: none;margin-left: 100px;margin-top: 100px;">
+            <img id="imgAvatar" src="/images/avatar.png" onmouseenter="imgAvatarEnter()" onmouseleave="imgAvatarLeave()"
+                width="200">
+        </div>
+
+        <div class="pageMain" id="runCode" style="display: none;width:min-content">
+            <div style="display: flex;justify-content: end;">
+                <input class="btn" type="button" value="run" style="margin-bottom: 10px;" onclick="runBtn()">
+            </div>
+            <textarea class="code" id="runCodeInput" style="width:  600px" rows="10"></textarea>
+            <textarea class="code" id="runCodeResult" style="width: 600px" rows="2"></textarea>
+        </div>
+
+        <!-- <div id="wiki" style="display: none;">
+            <iframe src="https://wiki.melvoridle.com/w/Main_Page" frameborder="0"
+                style="width: 100%;height: 90vh;"></iframe>
+        </div> -->
+
+        <div class="pageMain" id="info" style="display: none;">
+            <p>Create Time:2025-9-4</p>
+        </div>
+    </div>
+</body>
+
+</html>

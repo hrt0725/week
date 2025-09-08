@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test JavaScript</title>
+</head>
+
+<body>
+    <script>
+        let username = "Alice🚓";
+
+        let hobby = ["reading", "gaming", "hiking", "coding", "traveling"];
+        let userInfo = {
+            name: username,
+            age: 30,
+            isStudent: false,
+            hobbies: hobby
+        }
+        console.log(userInfo);
+        let selfJS = `my name is ${userInfo.name}`;
+        console.log(selfJS);
+
+        const testconst = {
+            name: "Bob",
+            age: 25
+        };
+
+        console.log(aaa);
+        var aaa = "This is a test string.";
+
+        // 根据分数判断分数的等级，分数的取值范围1-100，成绩60分以下不及格E，60分以上为合格；90-100为优秀等级A，80-90为良好等级B，70-80等级C，60-70等级D；
+        let condition = 90;
+        if (condition < 1 || condition > 100) {
+            console.log("分数输入错误");
+        } else if (condition < 60) {
+            console.log(`分数为:${condition}-等级:E`);
+        } else if (condition < 70) {
+            console.log(`分数为:${condition}-等级:D`);
+        } else if (condition < 80) {
+            console.log(`分数为:${condition}-等级:C`);
+        } else if (condition < 90) {
+            console.log(`分数为:${condition}-等级:B`);
+        } else {
+            console.log(`分数为:${condition}-等级:A`);
+        }
+
+        for (let index = 0; index < 100; index++) {
+            if (index % 2 == 0) {
+                console.log(`${index}:偶数`);
+            } else {
+                console.log(`${index}:奇数`);
+            }
+
+        }
+
+        for (const item of hobby) {
+            console.log(item);
+
+        }
+    </script>
+</body>
+
+</html>

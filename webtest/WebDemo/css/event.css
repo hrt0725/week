@@ -1,0 +1,83 @@
+  * {
+      padding: 0px;
+      margin: 0px;
+      outline: none;
+      user-select: none;
+  }
+
+  .head {
+      margin-top: 5px;
+      padding: 15px;
+      padding-left: 30px;
+      display: flex;
+      justify-content: center;
+  }
+
+  .head ul li {
+      display: inline;
+      font-size: 18px;
+      margin-left: -5px;
+      color: white;
+      background-color: #3D91FF;
+      padding: 10px;
+  }
+
+  .head ul li:hover {
+      background-color: #2353c3;
+  }
+
+  .head ul li:first-child {
+      border-radius: 5px 0px 0px 5px;
+  }
+
+  .head ul li:last-child {
+      border-radius: 0px 5px 5px 0px;
+  }
+
+  .pageMain {
+      width: max-content;
+      background-color: rgb(206, 232, 255);
+      padding: 10px;
+      margin: 20px;
+      border-radius: 10px;
+  }
+
+  .btn,
+  #judgeResult p,
+  #jsqResult p {
+      color: white;
+      background-color: #3d91ff;
+      border-radius: 5px;
+  }
+
+  .inpt {
+      height: 25px;
+      font-size: 18px;
+      padding: 0px 5px;
+      border: 1px solid black;
+      border-radius: 5px;
+  }
+
+  .btn {
+      padding: 5px;
+      border: none;
+  }
+
+  #jsqResult p:hover,
+  .btn:hover,
+  #judgeResult p:hover {
+      background-color: #2353c3;
+      transform: scale(1.05);
+
+  }
+
+  #jsqResult p,
+  #judgeResult p {
+      margin: 5px;
+      padding-left: 5px;
+  }
+
+  .code {
+      padding: 5px;
+      font-size: 16px;
+  }
