@@ -2,6 +2,7 @@
 
 * Python 2.x
 * Python 3.x 主流
+* [https://docs.python.org/zh-cn/3/](https://docs.python.org/zh-cn/3/)
 
 **Python特点**
 
@@ -257,7 +258,39 @@ userInfo={
 for key,value in userInfo.items():
     print("{}的值为：{}".format(key,value))
 ```
-* for.....else
 
+* for.....else
+  ```python
+  #for....else
+  users={"name":"harry","age":18}
+  user_li={"name":"harry"}
+  for user in users:
+  if users[user]==user_li['name']:
+  print("找到了",user)
+  break
+  else:
+  print（"未找到")
+  ```
 
 **while循环**
+
+* while....:
+
+  ```python
+  i=1
+  while i<10:
+      print(i)
+      i+=1
+  ```
+* match...case条件选择
+
+  ```python
+  va = input("input>")
+      match va:
+          case "+":
+              print("加")
+          case "-":
+              print("减")
+          case _:
+              print("其它")
+  ```
