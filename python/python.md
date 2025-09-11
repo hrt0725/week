@@ -294,3 +294,227 @@ for key,value in userInfo.items():
           case _:
               print("其它")
   ```
+
+**注意事项**
+
+* 先注释再编程
+* 先理思路，在编程中寻求解决方案；
+* 编程细节要注意：输入数据去空格，数据类型要转换，变量声明要规范;
+* 代码完成要优化：优化代码运算逻辑，代码的行数，不必要的调试信息；
+* 重复性的代码要封装：独立的代码块封装为函数，类提高代码的复用率；
+
+**函数**
+
+**基本函数**
+
+**函数的定义**
+
+* def   func(agr):
+* 函数名称：
+  * 蛇形命名（func_add）
+  * 驼峰命名（funcAdd）
+  * \_\_func_add 下划线开头
+  * pass进行内容占位
+  * return 返回值
+  * 参数
+    * 位置参数
+    * 默认参数
+    * 关键字参数
+    * 可变参数
+    * 可变关键字参数
+    * 优先级：位置参数>关键字参数>默认值参数>可变参数>可变关键字参数
+
+**函数调用：func()**
+
+**匿名函数 lanbda**
+
+* 定义：无需声明函数名称，直接介绍参数进行运算返回结果
+
+  * result = lambda 参数1,参数2: 表达式/调用的函数
+
+  ```Python
+  result = lambda x, y: x + y
+  print(result(1, 2))
+  ```
+
+**列表推导**
+
+* 定义：对一个序列（列表、元组、字典）遍历，数据逐个处理后生成新的列表
+* 语法格式
+  `result = [ 表达式 for i in 列表 if 条件 ]`
+* 实例
+  ```Python
+  nums = [3, 7, 12, 19, 24, 30]
+  new_nums = [num for num in nums if num % 2 == 0]
+  print(new_nums)
+  ```
+
+**高阶函数**
+
+* 定义：把一个函数作为参数传递，或者把函数作为结果进行return；
+* 系统内置的高阶函数
+* map(func,iter)：对迭代对象进行逐一处理，**数据处理**
+  ```python
+  result = list(map(lambda x: x + 1, [1, 2, 3, 4, 5]))
+  print(result)
+  ```
+* filter(func,iter)：对迭代对象进行**数据筛选**
+  ```python
+  result = list(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 6]))
+  print(result)
+  ```
+
+**面向对象**
+
+**类class**
+
+* 定义：具有相同外部特征或者动作行为的个体的集合；
+* 属性：用来描述类的外在静态特征；
+* 方法：用来描述类的动作行为；
+
+**对象**
+
+* 定义：类中具体的个体；具备类的属性和方法；通过类的实例化生成；
+  ```python
+  class Person:
+      def __init__(self, name, age):
+          self.__name = name
+          self.__age = age
+
+      def say(self):
+          print("My name is {} and {} years old".format(self.__name, self.__age))
+          return self
+
+      def eat(self, foodName):
+          print("I like eat {}".format(foodName))
+          return self
+
+  if __name__ == "__main__":
+      tom = Person('Tom', 18)
+      tom.say().eat("樱桃")
+      jerry = Person('jerry', 25)
+      jerry.say().eat("香蕉")
+  ```
+
+封装
+
+* 定义：把类的属性数据或方法操作进行处理，实现安全访问，隐私处理等隐私处理
+* 属性封装
+  * 构造函数 `__init__`通过 `__`对属性设置私密属性,禁止外部访问，通过添加 `@property`装饰器
+    ```python
+    class Person:
+        def __init__(self, name, age):
+            self.__name = name
+            self.__age = age
+            self.__mobile = ""
+
+        @property
+        def mobile(self):
+            return self.__mobile
+
+        @mobile.setter
+        def mobile(self, mobile):
+             self.__mobile = str(mobile)
+    ```
+* 方法封装
+  * 通过在方法名前面添加 `__`设置私有方法，禁止外部调用；
+  * 对外访问其它公共方法，方法内部调用私有方法；
+
+继承
+
+* 定义：子类继承父类的属性和方法，无需单独定义；也可以单独定义属性和方法；
+* 定义子类后括号中引用父类，可以继承单个类，也可以继承多个类；
+  ```python
+  from day2.dx import Person
+
+  class Man(Person):
+      pass
+      def work(self,name):
+          print("working:".format(name))
+  ```
+* 继承属性：
+  * 子类不添加构造函数二init_方法，默认继承父类所有的属性
+  * 子类添加特有的属性，定义构造函数时，需使用super()引用父类的构造函数；
+    `super().__init__(父类的属性)`
+  * 方法继承：默认直接继承父类的所有方法；
+  * 方法重写：对父类的方法，子类中定义一个同名的方法，进行逻辑的修改；
+
+**多态**
+
+* 定义：基于类继承的方法重写的基础之上，建立一个统一的对外接口方法，实现不同类的对象，调用时实现各自的业务逻辑；
+
+  ```python
+  def people_sleep(people):  # people是类的对象
+      people.sleep()  # 调用子类重写的方法
+
+  p = Person()
+  b = Boy()
+  m = Male()
+  # 接口调用
+  people_sleep(p)
+  people_sleep(b)
+  people_sleep(m)
+  ```
+
+**装饰器**
+
+* 定义：在不改变原有函数代码逻辑的基础上，单独定义一个函数，实现对原有函数的功能附加，比如日志打印处理，数据处理，性能执行时间的测算等;
+* 装饰器本质是一个函数之间互相调用的高阶函数，包括有参和无参；
+
+  ```python
+  def runNum(number):
+      def runNum_(func):
+          def wrapper(*args, **kwargs):
+              for i in range(number):
+                  result = func(*args, **kwargs)
+              return result
+          return wrapper
+      return runNum_
+  ```
+* 装饰器调用
+
+  ```python
+  @runNum(2)
+  def add(numA, numB):
+      result = numA + numB
+      print(result)
+      return result
+  ```
+
+**模块**
+
+* 包：package
+* 库：library
+* 类：class
+* 方法：method
+* 包含关系：package>library>class>method
+
+**内置库**
+
+* os
+* sys
+* time
+* request
+
+**三方库**
+
+* selenium
+* pytest
+* numpy
+* flask
+
+**模块的引用：**
+
+* 内置的库
+  ```python
+  import os
+  import time，os
+  ```
+* 三方的库
+  * 需要先安装：`pip install selenium`
+  * 引用：
+    `from selenium import webdriver`
+* 自定义的库
+  `from package.filename import ClassName`
+  `from package import class.method`
+  from package.file
