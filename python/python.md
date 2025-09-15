@@ -506,15 +506,124 @@ for key,value in userInfo.items():
 **模块的引用：**
 
 * 内置的库
+
   ```python
   import os
   import time，os
   ```
 * 三方的库
+
   * 需要先安装：`pip install selenium`
   * 引用：
     `from selenium import webdriver`
 * 自定义的库
   `from package.filename import ClassName`
   `from package import class.method`
-  from package.file
+  `from package.filename.class import method`
+
+**异常处理**
+
+**异常捕获**
+
+* 定义：代码逻辑中可能存在的异常错误进行接收处理，易于用户理解和接受，避免出现崩溃闪退等不可接受的情况；
+* try-except-else
+  ```python
+  try:
+      a,b = 6,0
+      result = a/b
+      print(result)
+  except ZeroDivisionError as e:
+      print("除数不能为0")
+  ```
+
+**异常抛出**
+
+* 定义：在业务处理过程中存在错，使用raise抛出错误，便于定位；
+* 使用Python内置的错误类型：TypeError，ValueError
+
+**文件读写**
+
+* 常见文件读写：text，csv，excel
+
+**test文件读写**
+
+* file = open(filename.mode,encoding='utf-8')
+* with open() as file:
+
+**文件写入**
+
+* file.write("www")
+* file.writelines([])
+* file.close()：文件关闭
+
+**文件读取**
+
+* file.read()：读取全部内容
+* file.radline()：读取一行内容
+* file.readlines()：读取所有行，返回列表
+* file.close()：文件关闭
+
+**CSV文件读取**
+
+* 列表形式的读写
+
+  ```python
+  def write_csv(filename, head, data, mode="w"):
+      with open(filename, mode, encoding="utf-8", newline="") as csvFile:
+          csvWriter = csv.writer(csvFile)
+          csvWriter.writerow(head)
+          csvWriter.writerows(data)
+
+
+  def read_csv():
+      with open("aa.csv", "r", encoding="utf-8", newline="") as csvFile:
+          csvReader = csv.reader(csvFile)
+          head = next(csvReader)
+          print(head)
+          for row in csvReader:
+              print(row)
+  ```
+* 字典形式的读写
+
+  ```python
+  def write_dict_csv():
+      with open("aa.csv", "w", encoding="utf-8", newline="") as csvFile:
+          head = ["name", "age", "sex"]
+          data = [
+              {"name": "tom", "age": 15, "sex": "man"},
+              {"name": "jerry", "age": 19, "sex": "man"},
+              {"name": "luck", "age": 20, "sex": "woman"}
+          ]
+          csvDictWriter = csv.DictWriter(csvFile, head)
+          csvDictWriter.writeheader()
+          csvDictWriter.writerows(data)
+
+
+  def read_dict_csv():
+      with open("aa.csv", "r", encoding="utf-8", newline="") as csvFile:
+          csvDictReader = csv.DictReader(csvFile)
+          for row in csvDictReader:
+              print(row)
+  ```
+* pandas读写csv
+
+  ```python
+  import pandas as pd
+
+  data = {
+      "name": ["张飞", "关羽", "刘备"],
+      "age": [32, 36, 45],
+      "province": ["四川阆中", "山西", "河北"],
+      "nickname": ["张翼德", "关云长", "刘玄德"]
+  }
+  df = pd.DataFrame(data)
+  df.to_csv("pandas_to_csv.csv", index=False, encoding="utf-8")
+
+  print(pd.read_csv("pandas_to_csv.csv"))
+  ```
+
+**Excel文件读写**
+
+* 安装三方库openpyxl、pandas
+  `pip install openpyxl pandas`
+* pandas
