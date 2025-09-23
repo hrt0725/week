@@ -1,0 +1,4 @@
+2025-09-22 11:46:26,473 - test_index.py[19] - INFO : TestIndex setup
+2025-09-22 11:46:26,473 - test_index.py[26] - INFO : 开始 test_Index
+2025-09-22 11:46:26,474 - test_index.py[28] - INFO : 开始 搜索商品
+2025-09-22 11:46:31,045 - test_index.py[22] - INFO : TestIndex tearDown
