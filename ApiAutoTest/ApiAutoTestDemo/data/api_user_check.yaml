@@ -1,0 +1,16 @@
+#正常检查 POST
+- data:
+    app_key:
+    uuid:
+    token:
+  method: POST
+  assert_info:
+    - key: "ret"
+      expect_value: 200
+      assert_method: equal
+    - key: "data.err_code"
+      expect_value: 0
+      assert_method: equal
+    - key: "data.err_msg"
+      expect_value: ""
+      assert_method: equal

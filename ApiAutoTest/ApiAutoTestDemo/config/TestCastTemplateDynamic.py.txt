@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+# @Time    : %(date)s
+# @Author  : %(userName)s
+# @File    : %(fileName)s
+# @Software: PyCharm
+# @Description : create by script.CreateTestTemplate.py
+
+import ddt
+import pytest
+import requests
+
+from config.config import AppKey, %(apiAddr)s
+from utils.assert_multi import caseAssert
+from utils.log_utils import createLoger
+
+
+@ddt.ddt()
+class Test%(className)s:
+
+    def test_%(caseName)s(self):
+        loger = createLoger()
+        # 处理数据
+        caseData = {
+            "data": {
+                "app_key": AppKey,
+                "uuid":"",
+                "token":""
+            },
+            "method": "POST",
+            "assert_info": [
+                {
+                    "key": "ret",
+                    "expect_value": 200,
+                    "assert_method": "equal"
+                }
+            ]
+        }
+        # 处理数据
+        loger.info("开始请求({})：{}".format(caseData["method"], %(apiAddr)s))
+        loger.info("请求参数：{}".format(caseData["data"]))
+        # 发送请求
+        resultData = requests.request(method=caseData["method"], url=%(apiAddr)s, params=caseData["data"]).json()
+        loger.info("请求结果：{}".format(resultData))
+        # 断言
+        caseAssert(caseData["assert_info"], resultData)
+
+if __name__ == '__main__':
+    pytest.main()

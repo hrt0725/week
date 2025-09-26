@@ -1,4 +1,4 @@
-**自动化的流程**
+###### **自动化的流程**
 
 * 确定目标：确定自动化的范围；
   * 新项目：前端部分（核心业务流）
@@ -17,7 +17,7 @@
 
 **测试需求分析->测试计划制定->测试用例设计->测试框架搭建->测试脚本编写->脚本执行->结果分析->测试报告**
 
-**自动化测试工具**
+###### **自动化测试工具**
 
 * Selenium：开源，跨平台，跨浏览器，多编程语言；框架集成度高，生态丰富；支持B/S，不支持C/S，代码编程要求高；
 * UET (QTP)：企业级付费，支持录制回放，支持B/S，C/S；付费，成本高；
@@ -25,7 +25,7 @@
 * Cypress：基于前端开发框架(Vue/React/Angular）的前端自动化，js/ts；只支持IS，多浏览需付费;
 * Playwright：微软系，支持多浏览器，支持录制回放；兼容性比较差；
 
-**自动化测试用例**
+###### **自动化测试用例**
 
 * 定义：从功能测试用例中挑选具有代表性的业务流程或功能场景，形成的测试用例；
 * 自动化用例编写原则
@@ -40,7 +40,7 @@
 | ECS_Flow_shopping_01 | 验证购物流程_单商品直接购买支付   | 用户名：tom<br />登录密码：123<br />keyword：华为手机<br />商品名称：华为Pro70<br />支付密码：1234 | 1.用户登录<br />2.搜索商品<br />3.选择商品立即购买<br />4.支付商品 | 与步骤一一对应 |        |          |
 | ECS_Flow_shopping_02 | 验证购物流程_购物车中批量结算支付 |                                                                                                    |                                                                    |                |        |          |
 
-**自动化测试架构方式**
+###### **自动化测试架构方式**
 
 * 线性架构：按照测试用例形成线性化的流程脚本，每个脚本对应一条测试用例；
   * 特点：脚本相对独立，执行度比较高；脚本复用性较差，维护成本比较高；
@@ -51,7 +51,7 @@
 * 关键字驱动：通过对底层业务的封装，实现使用关键字对业务进行行为驱动，简化测试的代码复杂度；
   * 特点：高度封装底层逻辑，对外暴露关键行为，降低自动化门槛；不便于对底层进行自定义开发，无法实现个性化脚本自动化；
 
-**自动化测试环境搭建**
+###### **自动化测试环境搭建**
 
 * 安装Python：Python3.9+以上版本
 * 安装Selenium：`pip install -U selenium` 更新安装
@@ -59,7 +59,7 @@
 * 编程工具IDE：PyCharm；
 * 创建项目：项目名称和路径避免使用中文，Python解释器选择本地Python；
 
-**环境问题解决**
+###### **环境问题解决**
 
 * Python解释器冲突问题：
   * 存在多版本的Python，系统环境变量配置顺序不一致导致执行版本不一致；
@@ -67,9 +67,9 @@
 * 浏览器与驱动冲突：浏览器版本与驱动版本不一致；推荐浏览器驱动及时检查，环境变量配置固定位置；
 * Selenium版本更新：及时更新selenium
 
-**Selenium 的使用**
+##### **Selenium 的使用**
 
-**webdriver工作原理**
+###### **webdriver工作原理**
 
 * ![1757988373489](image/WebAutoTest/1757988373489.png)
 * Webdriver是一个基于C/S架构的服务结构；脚本代码属于Client客户端，浏览器属于Server服务端；
@@ -77,9 +77,9 @@
 * 客户端脚本运行过程中，通过Http协议向服务端发送请求，服务端浏览器接收了请求后解析，并作出相应操作，将结果返回给客户端；
 * 客户端脚本收到服务器返回的结果后，判断是否终止脚本，则继续向服务器浏览器发送请求，若没有，则结束；关闭session会话；
 
-**元素的定位和操作**
+##### **元素的定位和操作**
 
-**浏览器操作**
+###### **浏览器操作**
 
 * 打开浏览器 `driver.get(url)`
 * 关闭浏览器
@@ -94,7 +94,7 @@
   * driver.forward()
   * driver.refresh()
 
-**元素定位**
+###### **元素定位**
 
 * By.ID
 * By.NAME
@@ -110,7 +110,7 @@
   * document.querySelectorAll()
 * js的JQuery查询：$("")
 
-**XPATH选择策略**
+###### **XPATH选择策略**
 
 * 要求使用相对路径：`//*[@id="chat-submit-button"]`
 * 通过@属性名称定位：`//button[@id="chat-submit-button"]`   #优先使用id，name,class属性，其他唯一属性；
@@ -124,11 +124,11 @@
 * 通过数字顺序定位：`//div[@id="head"]/div[3]/a`    #[3] 第三个标签
 * 通过子级找父级 `//div[@id="head"]/`   #代表上级
 
-**定位优先级**
+###### **定位优先级**
 
 id > name > class_name > css_selector > xpathr > link_text > partial_link_text > tag_name
 
-**相对定位**
+###### **相对定位**
 
 * 概念：通过参考元素来确定目标元素，
 * 根据目标元素在参考元素的水平或垂直方位(上，下，左，右，附近)，像素级别的100px以内；
@@ -153,7 +153,7 @@ id > name > class_name > css_selector > xpathr > link_text > partial_link_text >
   ).send_keys("pyton")
   ```
 
-**父级走素定位策略**
+###### **父级走素定位策略**
 
 * 概念：目标元素在全局范围定位不唯一，可以寻找目标元素在指定范围唯一父级元素，再根据父级元素定位子级元素；
 * 示例：
@@ -163,7 +163,7 @@ id > name > class_name > css_selector > xpathr > link_text > partial_link_text >
   parent_locator.find_element(By.CSS_SELECTOR,'img[src$="a2779b.png"]').click()  #通过父级对象找子级元素
   ```
 
-**CSS_SELECTOR定位策略**
+###### **CSS_SELECTOR定位策略**
 
 * 基础选择：
   * ID选择器
@@ -188,23 +188,23 @@ id > name > class_name > css_selector > xpathr > link_text > partial_link_text >
   * 父级找子级：父级 > 直接子级
   * 父级找子级：父级  子级/孙级
 
-**元素操作**
+###### **元素操作**
 
 * click()  点击
 * send_keys()  输入
 * clear()  清空内容
 * submit()  表单提交
 
-**元素等待**
+##### **元素等待**
 
-**强制等待**
+###### **强制等待**
 
 * 等待固定时长，` time.sleep(2)`
 * 应用场景：
   * 项目业务需要，必须等待固定时长，倒计时；
   * 脚本调试：脚本编写调试添加，正式运行时去掉；
 
-**隐式等待**
+###### **隐式等待**
 
 * 等待页面DOM结构加载；
   `driver.implicitly_wait(30) #最多等待30秒，页面DOM结构加载出来就不等了`
@@ -212,7 +212,7 @@ id > name > class_name > css_selector > xpathr > link_text > partial_link_text >
   * 初次访问页面
   * 点击超链接跳转到新页面
 
-**显示等待**
+###### **显示等待**
 
 * 等待具体的元素对象；
 
@@ -227,7 +227,7 @@ id > name > class_name > css_selector > xpathr > link_text > partial_link_text >
 
   * 元素被加载出来
 
-**元素判断**
+###### **元素判断**
 
 * is_displayed()：判断元素是否可见
 * is_enabled()：判断元素是否可用
@@ -237,9 +237,9 @@ id > name > class_name > css_selector > xpathr > link_text > partial_link_text >
       shopping_car.click()
   ```
 
-**常见控件**
+##### **常见控件**
 
-**窗口切换**
+###### **窗口切换**
 
 * 浏览器每打开一个窗口，都会生产一个窗口的句柄标识，要进入新窗口需进行窗口切换
 * 获取所有窗口句柄：`driver.window_handles`
@@ -247,7 +247,7 @@ id > name > class_name > css_selector > xpathr > link_text > partial_link_text >
 * 窗口切换：`driver.switch_to.window`
   `driver.switch_to.window(driver.window_handles [-1])`      #切换窗口
 
-**弹框切换**
+###### **弹框切换**
 
 * alert        警告提示框
 * confirm  确认提示框
@@ -275,9 +275,9 @@ frame/iframe切换
   * 退出当前frame：`driver.switch_to.parent_frame()`
   * 退出所有frame：`driver.switch_to.default_content()`
 
-**鼠标键盘的模拟**
+##### **鼠标键盘的模拟**
 
-**鼠标模拟**
+###### **鼠标模拟**
 
 * 对页面元素不可见导致的无法进行操作的情况，模拟鼠标的操作过程实现元素可见；
 * 实例化ActionChains对象
@@ -303,7 +303,7 @@ frame/iframe切换
       Actionchains(driver).scroll_to_element(ele).perform()            #滚动到元素
       ```
 
-**键盘模拟**
+###### **键盘模拟**
 
 * 模拟键盘的操作事件，`driver.find_element().send_keys(Keys.ENETER)`
 * 常见键盘事件：
@@ -316,7 +316,7 @@ frame/iframe切换
   | send_keys (Keys. ENTER)       | 回车键                  |
   | send_keys (Keys. CONTROL,"a") | Ctrl+A 全选             |
 
-**JS处理**
+###### **JS处理**
 
 * 页面操作过程中，无法直接处理，可以借助JS代码实现效果
 * 通过使用driver.excecute_script(js)
@@ -346,18 +346,18 @@ frame/iframe切换
 
 * 通过截图，对脚本执行的关键过程进行保存，事后验证执行结果；
 
-**文件上传**
+###### **文件上传**
 
 * `driver.find_elementO.send_keys("d:/abc.png")`
 
-**验证码处理**
+###### **验证码处理**
 
 * 关闭验证码，内部测试环境，系统测试；
 * 设置万能验证码，验收测试，线上测试；
 * Cookie绕过验证，浏览器缓存
 * OCR验证码识别，技术要求比较高；
 
-**Cookie绕过验证码**
+###### **Cookie绕过验证码**
 
 * 逻辑：
 
@@ -378,7 +378,7 @@ frame/iframe切换
   driver.get ("http://192.168.192.132/upload/user.php")#网页内嵌frame，使用；
   ```
 
-**OCR图像识别**
+###### **OCR图像识别**
 
 * 图像识别库：EasyOCR,TesseractOCR,PaddleOCR,DDDDOCR
 * dddocr图像识别
@@ -401,9 +401,9 @@ frame/iframe切换
   * 安装失败
     * Image.ANTIALIAS    ->    Image.LANCZOS
 
-**unittest测试框架**
+##### **unittest测试框架**
 
-**unittest组件**
+###### **unittest组件**
 
 * TestCase：编写脚本用例
 * 创建测试用例的步骤
@@ -501,7 +501,7 @@ frame/iframe切换
       runner.run(discover)
   ```
 
-**测试报告HTMLTestRunner**
+###### **测试报告HTMLTestRunner**
 
 * 安装
   `pip instal1 html-testRunner`
@@ -527,9 +527,9 @@ frame/iframe切换
 
   ```
 
-**框架设计**
+##### **框架设计**
 
-**POM设计模式**
+###### **POM设计模式**
 
 * POM - Page Object Model-面对象模式 ；
 * 设计思想(理念）；一个页面一个类，一个元素一个方法；
@@ -560,7 +560,7 @@ frame/iframe切换
 
 设计思路：自上而下/自下而上
 
-实践过程
+###### 实践过程
 
 * 设计测试用例
 * 编写线性脚本
@@ -588,9 +588,9 @@ frame/iframe切换
   * log封装：自动化测试过程进行跟踪记录
     * 基于logging 库进行日志的封装
 
-**Pytest框架**
+##### **Pytest框架**
 
-**Pytest断言**
+###### **Pytest断言**
 
 * 结果真假断言：assertTrue
 * 大小关系断言：assert 12>=3
@@ -598,14 +598,14 @@ frame/iframe切换
 * 字符包含关系断言：assert "a"in"abc"
 * 列表包含断言：assert   [1，2]  in   [[1，2],3]
 
-**pytest命令行执行**
+###### **pytest命令行执行**
 
 * 执行目录下所有用例：pytest  ./cases
 * 执行单个文件中的所有用例：pytest  ./cases/test_demo.py
 * 执行指定类的用例：pytest    ./cases/test_demo.py/::TestDemoLogin
 * 执行具体的用例方法：pytest  ./cases/test_demo.py/::TestDemoLogin::test_login
 
-**pytest命令参数：**
+###### **pytest命令参数：**
 
 * -s：输出详细信息
 * -x：失败1次停止
@@ -616,12 +616,13 @@ frame/iframe切换
 * --maxfail 3：3条用例失败停止执行
 * --pyargs：执行指定包内的用例
 
-setup和teardown
+###### **setup和teardown**
 
 * 模块级别：每个测试文件.py，执行前后运行一次；
 * 类级别：每个class，执行前后运行一次；
 * 方法级别：每个类中的test方法，执行前后运行一次
 * 函数级别：不在class类里面的测试方法执行前后运行一次;
+
   ```python
   def setup_module():
       print("setup_module")
@@ -662,4 +663,188 @@ setup和teardown
 
   if __name__ == '__main__':
       pytest.main()
+  ```
+
+###### **pytest 配置文件**
+
+```ini
+[pytest]
+addopts = -s -v -m flow
+testpaths = ./cases
+python_files = test_*.py
+python_classes = Test*
+python_functions = test_*
+```
+
+###### **skip 和skipif**
+
+* 测试用例在迭代执行过程中，对不需要执行的用例进行跳过；
+
+  ```python
+  class TestDemoThree:
+  @pytest.mark.skip(reason="不需要执行")#直接跳过当前用例，不执行
+  def test_add(self):
+  print("test_add")
+  assert 1+1 >2
+  @pytest.mark.skipif(condition-1>0,reason="满足条件跳过用例")#条件满足，跳过当前用例，不执行
+  def test_sub(self):
+  print("test_sub")
+  assert 2-1 == 1
+  ```
+
+###### **@pytest.mark.xfail：测试用例预期判断**
+
+* 特殊业务场景中需要在设计脚本时，进行预期判断；
+* 主要来判断预期和实际结果的一致性；预期和实际一致，用例通过，预期和实际不一致，用例不通过，有Bug；
+* xfail(condition）,condition条件成立，预期失败，条件不成立预期成功；
+* 预期和实际对比的四种结果状态
+
+  * passed：预期成功，实际成功（符合要求，用例通过无Bug）
+  * failed：预期成功，实际失败（用例不通过，存在Bug）
+  * xfailed：预期失败，实际失败（符合要求，用例通过无Bug）
+  * xpassed：预期失败，实际成功（用例不通过，存在Bug）
+* pytest.ini 配置
+
+  * xfail_strict=true  #把failed 和xpassed 归并为 failed
+
+  ```python
+  @pytest.mark.xfail(condition=2>1,reason="预期失败")#条件成立，预期失败，assert结果断言 失败，===》预期失败，实际失败，xfaild
+  符合要求
+  def test_mul(self):
+    print("test_mul")
+    assert 2*3 == 4
+  @pytest.mark.xfai1(condition=3>5,reason="预期成功")#条件不成立，预期成功，assert断言结果成功，===》预期成功，实际成功，passed
+  符合要求
+    def test_div(self):
+    print("test_div")
+  assert 3//2 == 1
+  @pytest.mark.xfail(condition=4>1,reason="预期成失败")#条件成立，预期失败，assert断言成功，====》预期成失败实际成功，xpassed,
+  不符合要求
+    def test_for(self):
+    print("test_for")
+  assert 'x' in 'thanx you'
+  @pytest.mark.xfail(condition=0>1,reason="预期成功")#条件不成立，预期成功，assert断言结果失败，===》预期成功，实际失败，
+  failed，不符合要求
+    def test_if(self):
+    print("test_if")
+  assert 3!=3
+  ```
+
+###### **@pytest.mark.parametrize：参数传递**
+
+```python
+class TestDemoParam:
+    @pytest.mark.parametrize("username", ["tom", "jerry", "luck"])
+    def test_login(self, username):
+        print("test_login:{}".format(username))
+        assert username == "jerry"
+
+    username = ["tom", "jerry", "luck"]
+    password = ["111", "222", "333"]
+
+    @pytest.mark.parametrize("username,password", zip(username, password))
+    def test_register(self, username, password):
+        assert username == "jerry" and password == "111"
+```
+
+###### **@pytest.fixture 测试夹具**
+
+* 定义：测试夹具，把一个方法定义为一个装饰的，传递给测试方法。实现数据传递，前置处理的功能；
+* scope:
+  * function (默认)：每个测试用执行之前初始化一次，调用时取值不同
+  * class：每个类执行之前初始化一次，类中方法调用取值一样
+  * modulel：每个test.py运行前初始化一次
+  * session：每次会话运行一次；全局性的；
+  * ```python
+    @pytest.fixture(scope="module")#scope：function级别，每个测试用执行之前初始化一次，调用时取值不同；class级别；每个类执行之前初始化一次，类
+    中方法调用取值一样；module级别，每个test.py运行前初始化一次
+    def order_info():
+      print("-------order_info")
+      datas = {"orderId":"2012912001","price":fake.random_number(),"msg":"订单已完成","orderStatus":"已支付"}
+      return datas
+    ```
+
+## **接口自动化**
+
+###### **接口自动化流程**
+
+* 接口分析：根据接口文档进行接口需求分析，输出接口测试点；
+* 设计用例：按照接口分析的测试点，对每个接口进行测试用例设计
+* 脚本开发：基于接口测试用例编写测试脚本，搭建接口自动化框架；
+* 执行测试：批量执行接口自动化框架脚本，生成测试报告；
+* 结果分析：对报告中的问题进行跟踪记录，提交Bug；
+* 脚本维护：对脚本存在的问题进行迭代和维护；
+
+##### 接口用例设计
+
+###### 设计用例思路
+
+* 参数校验
+  * 先考虑正向（所有参数正确的情况），在考虑逆向（逐一验证每个参数非法的情况）
+  * 接口的前提条件（当前接口依赖其他接口）
+  * 接口的参数默认值
+  * 参数的必填项
+  * 参数之间的关联约束
+  * 参数的类型
+  * 参数的取值范围
+  * 其他异常情况
+* 功能逻辑校验
+  * 业务规则的校验
+  * 代码逻辑分支的校验
+* 业务流程校验
+  * 多接口组成的业务场景校验
+
+##### 接口自动化框架
+
+###### 框架结构：Python   Requests  +  pytest  +  Allure  +  ddt  +  yaml  +  Jenkins
+
+###### 设计思想：分层设计
+
+
+
+##### 接口需求分析
+
+###### 注册接口测试点
+
+* 常规信息：支持新I旧接口地址，支持HTTP/HTTPS协议，请求方式支持get/post;
+* 接口参数：
+  * 所有必填项： app-key, usermame,password
+  * 必填项+选填项：return_data,ext_info:
+  * 默认值：retrun_data:0返回完整结果；1，返回简洁结果
+  * password密码md5加密后长度32小写；
+  * usemame 用户名长度最小1，最大50;
+
+###### 设计用例
+
+* 所有必填项合法正确
+* 必填项+选填项合法正确
+* 可选项return_data为默认值0
+* 可选项return_data为非默认值1
+* 必填项为空
+* 必填项错误
+
+| 接口名称 | 用例标题 | 测试数据 | 测试断言 | 测试结果 |
+| -------- | -------- | -------- | -------- | -------- |
+|          |          |          |          |          |
+|          |          |          |          |          |
+
+##### 数据分离ddt+yaml
+
+###### yaml数据格式
+
+* 对象：
+* 数组：
+* 纯量：
+* 示例：
+  ```yaml
+  username: tom
+  password: 123
+  phone: 123123
+  userInfo:
+    email: 123@163.com
+    gender: 男
+    friends:
+      - luck
+      - natasha
+      - jerry
   ```

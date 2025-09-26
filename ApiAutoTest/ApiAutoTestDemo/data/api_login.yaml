@@ -1,0 +1,25 @@
+#正常登录 POST
+- data:
+    username: luck
+    password: 123123
+  method: POST
+  assert_info:
+    - key: "ret"
+      expect_value: 200
+      assert_method: equal
+    - key: "data.err_code"
+      expect_value: 0
+      assert_method: equal
+    - key: "data.err_msg"
+      expect_value: ""
+      assert_method: equal
+
+#未输入用户名 POST
+- data:
+    username: ""
+    password: 123
+  method: POST
+  assert_info:
+    - key: "ret"
+      expect_value: 400
+      assert_method: equal

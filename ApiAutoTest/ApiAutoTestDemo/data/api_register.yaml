@@ -1,0 +1,36 @@
+- data: #所有必填项填写正确
+    username: luck
+    password: 123123
+  method: POST
+  assert_info:
+    - key: "ret"
+      expect_value: 200
+      assert_method: equal
+    - key: "data.err_code"
+      expect_value: 0
+      assert_method: equal
+    - key: "data.err_msg"
+      expect_value: ""
+      assert_method: equal
+
+- data: #所有必填项和选填项填写正确
+    username: 5416d-we5
+    password: 123123
+    return_data: 0
+    ext_info:
+    phone: 13211223344
+    sex: 男
+  method: POST
+  assert_info:
+    - key: "ret"
+      expect_value: 200
+      assert_method: equal
+
+- data: #用户名为空
+    username: ""
+    password: 123123
+  method: POST
+  assert_info:
+    - key: "ret"
+      expect_value: 400
+      assert_method: equal
