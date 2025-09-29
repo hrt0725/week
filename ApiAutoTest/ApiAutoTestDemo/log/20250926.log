@@ -1,0 +1,115 @@
+2025-09-26 18:38:51,954 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:52,101 - assert_multi.py[40] - INFO : 开始断言:
+2025-09-26 18:38:52,101 - assert_multi.py[41] - INFO : ret:实际值：200
+2025-09-26 18:38:52,101 - assert_multi.py[42] - INFO : ret:期望值：200
+2025-09-26 18:38:52,101 - assert_multi.py[43] - INFO : 断言方式:equal
+2025-09-26 18:38:52,198 - assert_multi.py[40] - INFO : 开始断言:
+2025-09-26 18:38:52,198 - assert_multi.py[41] - INFO : ret:实际值：200
+2025-09-26 18:38:52,198 - assert_multi.py[42] - INFO : ret:期望值：200
+2025-09-26 18:38:52,198 - assert_multi.py[43] - INFO : 断言方式:equal
+2025-09-26 18:38:52,199 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:52,201 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:52,202 - test_api_get_user_profile.py[39] - INFO : 开始请求(POST)：http://api.yesapi.net/api/App/User/Profile
+2025-09-26 18:38:52,202 - test_api_get_user_profile.py[40] - INFO : 请求参数：{'app_key': 'F2402005A90D70AEB649F409C8D68D85', 'uuid': '', 'token': ''}
+2025-09-26 18:38:52,289 - test_api_get_user_profile.py[43] - INFO : 请求结果：{'ret': 400, 'data': {}, 'msg': '客户端非法请求：uuid.len应该大于或等于32, 但现在uuid.len = 0', '_t': 1758883132}
+2025-09-26 18:38:52,289 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:52,289 - assert_multi.py[30] - INFO : ret:实际值：400
+2025-09-26 18:38:52,290 - assert_multi.py[31] - INFO : ret:期望值：200
+2025-09-26 18:38:52,290 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:52,399 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:52,402 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:52,403 - test_api_get_users.py[42] - INFO : 开始请求(POST)：http://api.yesapi.net/api/App/User/GetList
+2025-09-26 18:38:52,403 - test_api_get_users.py[43] - INFO : 请求参数：{'app_key': 'F2402005A90D70AEB649F409C8D68D85', 'page': 3, 'perpage': 20, 'role': 'all', 'sort_type': 1}
+2025-09-26 18:38:52,506 - test_api_get_users.py[46] - INFO : 请求结果：{'ret': 200, 'data': {'err_code': 0, 'err_msg': '', 'users': [{'uuid': '2DB28556EF01893C3DBD84B39702C8B4', 'username': 'nicolesmith', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:42:18', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': '31EED227233BFF74FA15746F65BEF126', 'username': 'kmoore', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:41:01', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': '322AC6645974AEA5C747ECA26B59F0A5', 'username': 'dianapitts', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:41:01', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': '', 'phone': '13211223344', 'sex': '男'}}, {'uuid': '8F29BAB96106FC78A20757F0957752B8', 'username': 'zacharymartin', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:34:49', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': '1B50C6DC3109603F37D2BED9E6899462', 'username': 'ywarren', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:34:49', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': '', 'phone': '13211223344', 'sex': '男'}}, {'uuid': '2327014FC01B35FAE0CECFD3FF3DEC45', 'username': 'george02', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:34:49', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': '2ED567F4EB0296B880B4FE696CA938D8', 'username': 'aford', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:31:28', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': 'E16CE1A7A91620037F5FF1E7521EA3D6', 'username': 'kaylaphillips', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:31:28', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': '', 'phone': 13211223344, 'sex': '男'}}, {'uuid': 'BB546831D073D9F82522162BF39E6282', 'username': 'troy21', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:28:15', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': '6845CD4AF3D6E534101F4AFDD67A2E21', 'username': 'rrosario', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:28:15', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': '', 'phone': '13211223344', 'sex': '男'}}, {'uuid': '748D28E5AC9792FE4A2B76A9444C306E', 'username': 'gwendolyn61', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:28:15', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': 'B412966179A4EBBCC9C80F7B1BB04B12', 'username': 'grhrh', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:23:19', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': 'C03527FF561381F4D78193143363F5C8', 'username': 'hartjamie', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:19:22', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': '', 'phone': 13211223344, 'sex': '男'}}, {'uuid': '5C3457634078E545F4FF154D28EB6D46', 'username': 'aconway', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:19:21', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': 'B6EEC5196132EF1861BC7A0DE652D175', 'username': 'yjordan', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:07:12', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': '', 'phone': 13211223344, 'sex': '男'}}, {'uuid': '4AF067A29EBC1012BB139EA8FAFC7B2D', 'username': 'justinblack', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:07:12', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': '939E6E00495EE454F113E225CC3D74A7', 'username': 'perkinstaylor', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:07:11', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': '0B5A12F514597A4C105601884DF835A2', 'username': 'osmith', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:05:18', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}, {'uuid': '6AA09FCFC94C2202D0C5002D38897A7C', 'username': 'paulchandler', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:05:18', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': '', 'phone': 13211223344, 'sex': '男'}}, {'uuid': 'F17479E4E766F730249A1174A9D0DB26', 'username': 'larryparsons', 'role': 'user', 'role_desc': '普通会员', 'status': 0, 'status_desc': '正常', 'reg_time': '2025-09-25 17:05:18', 'ext_info': {'yesapi_avatar': '', 'yesapi_avatar_https': '', 'yesapi_nickname': '', 'yesapi_email': '', 'yesapi_sex': '', 'yesapi_real_name': '', 'yesapi_points': 0, 'yesapi_reg_source': '', 'yesapi_reg_note': '', 'yesapi_mobile': '', 'yesapi_expiration_time': ''}}], 'total': 150}, 'msg': '', '_t': 1758883132}
+2025-09-26 18:38:52,509 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:52,509 - assert_multi.py[30] - INFO : ret:实际值：200
+2025-09-26 18:38:52,509 - assert_multi.py[31] - INFO : ret:期望值：200
+2025-09-26 18:38:52,509 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:52,510 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:52,512 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:52,513 - test_api_login.py[29] - INFO : 开始请求(POST)：http://api.yesapi.net/api/App/User/Login
+2025-09-26 18:38:52,513 - test_api_login.py[30] - INFO : 请求参数：{'username': 'luck', 'password': '4297f44b13955235245b2497399d7a93', 'app_key': 'F2402005A90D70AEB649F409C8D68D85'}
+2025-09-26 18:38:52,613 - test_api_login.py[32] - INFO : 请求结果：{'ret': 200, 'data': {'err_code': 0, 'err_msg': '', 'uuid': '0161EBD56486498DE1938EAB5574ABC9', 'token': '1C2C93D129E82E08B84DD1F2633DF2C97C4449E31376D5240B0FC9BCE9EF122D', 'role': 'user'}, 'msg': '', '_t': 1758883132}
+2025-09-26 18:38:52,614 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:52,615 - assert_multi.py[30] - INFO : ret:实际值：200
+2025-09-26 18:38:52,615 - assert_multi.py[31] - INFO : ret:期望值：200
+2025-09-26 18:38:52,615 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:52,615 - assert_multi.py[30] - INFO : data.err_code:实际值：0
+2025-09-26 18:38:52,615 - assert_multi.py[31] - INFO : data.err_code:期望值：0
+2025-09-26 18:38:52,616 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:52,616 - assert_multi.py[30] - INFO : data.err_msg:实际值：
+2025-09-26 18:38:52,616 - assert_multi.py[31] - INFO : data.err_msg:期望值：
+2025-09-26 18:38:52,616 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:52,617 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:52,618 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:52,619 - test_api_login.py[29] - INFO : 开始请求(POST)：http://api.yesapi.net/api/App/User/Login
+2025-09-26 18:38:52,619 - test_api_login.py[30] - INFO : 请求参数：{'username': '', 'password': '202cb962ac59075b964b07152d234b70', 'app_key': 'F2402005A90D70AEB649F409C8D68D85'}
+2025-09-26 18:38:52,709 - test_api_login.py[32] - INFO : 请求结果：{'ret': 400, 'data': {}, 'msg': '客户端非法请求：username.len应该大于或等于1, 但现在username.len = 0', '_t': 1758883132}
+2025-09-26 18:38:52,710 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:52,710 - assert_multi.py[30] - INFO : ret:实际值：400
+2025-09-26 18:38:52,710 - assert_multi.py[31] - INFO : ret:期望值：400
+2025-09-26 18:38:52,710 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:52,711 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:52,713 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:52,713 - test_api_register.py[28] - INFO : 开始发送请求(POST)：http://api.yesapi.net/api/App/User/Register
+2025-09-26 18:38:52,714 - test_api_register.py[29] - INFO : 请求参数：{'username': 'luck', 'password': '4297f44b13955235245b2497399d7a93', 'app_key': 'F2402005A90D70AEB649F409C8D68D85'}
+2025-09-26 18:38:52,807 - test_api_register.py[32] - INFO : 请求结果：{'ret': 200, 'data': {'err_code': 1, 'err_msg': '用户已注册，不能重复注册', 'uuid': ''}, 'msg': '', '_t': 1758883132}
+2025-09-26 18:38:52,808 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:52,808 - assert_multi.py[30] - INFO : ret:实际值：200
+2025-09-26 18:38:52,809 - assert_multi.py[31] - INFO : ret:期望值：200
+2025-09-26 18:38:52,809 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:52,809 - assert_multi.py[30] - INFO : data.err_code:实际值：1
+2025-09-26 18:38:52,809 - assert_multi.py[31] - INFO : data.err_code:期望值：0
+2025-09-26 18:38:52,810 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:52,816 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:52,818 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:52,819 - test_api_register.py[28] - INFO : 开始发送请求(POST)：http://api.yesapi.net/api/App/User/Register
+2025-09-26 18:38:52,819 - test_api_register.py[29] - INFO : 请求参数：{'username': '5416d-we5', 'password': '4297f44b13955235245b2497399d7a93', 'return_data': 0, 'ext_info': None, 'phone': 13211223344, 'sex': '男', 'app_key': 'F2402005A90D70AEB649F409C8D68D85'}
+2025-09-26 18:38:52,918 - test_api_register.py[32] - INFO : 请求结果：{'ret': 200, 'data': {'err_code': 1, 'err_msg': '用户已注册，不能重复注册', 'uuid': ''}, 'msg': '', '_t': 1758883132}
+2025-09-26 18:38:52,919 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:52,919 - assert_multi.py[30] - INFO : ret:实际值：200
+2025-09-26 18:38:52,920 - assert_multi.py[31] - INFO : ret:期望值：200
+2025-09-26 18:38:52,920 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:52,921 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:52,922 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:52,923 - test_api_register.py[28] - INFO : 开始发送请求(POST)：http://api.yesapi.net/api/App/User/Register
+2025-09-26 18:38:52,923 - test_api_register.py[29] - INFO : 请求参数：{'username': '', 'password': '4297f44b13955235245b2497399d7a93', 'app_key': 'F2402005A90D70AEB649F409C8D68D85'}
+2025-09-26 18:38:53,014 - test_api_register.py[32] - INFO : 请求结果：{'ret': 400, 'data': {}, 'msg': '客户端非法请求：username.len应该大于或等于1, 但现在username.len = 0', '_t': 1758883133}
+2025-09-26 18:38:53,015 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:53,015 - assert_multi.py[30] - INFO : ret:实际值：400
+2025-09-26 18:38:53,015 - assert_multi.py[31] - INFO : ret:期望值：400
+2025-09-26 18:38:53,016 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:53,016 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:53,018 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:53,121 - test_api_user_check.py[39] - INFO : 开始请求(POST)：http://api.yesapi.net/api/App/User/Check
+2025-09-26 18:38:53,122 - test_api_user_check.py[40] - INFO : 请求参数：{'data': {'app_key': 'F2402005A90D70AEB649F409C8D68D85', 'uuid': 'A55B52DCDF6DAA74D0D3E4092156EE49', 'token': 'AEE79390FB834D41A802D86A89B0D987B07D6E657F8F601B185490AE1378027D'}, 'method': 'POST', 'assert_info': [{'key': 'ret', 'expect_value': 200, 'assert_method': 'equal'}]}
+2025-09-26 18:38:53,213 - test_api_user_check.py[43] - INFO : 请求结果：{'ret': 200, 'data': {'err_code': 0, 'err_msg': ''}, 'msg': '', '_t': 1758883133}
+2025-09-26 18:38:53,214 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:53,214 - assert_multi.py[30] - INFO : ret:实际值：200
+2025-09-26 18:38:53,214 - assert_multi.py[31] - INFO : ret:期望值：200
+2025-09-26 18:38:53,214 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:53,215 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:53,216 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:53,317 - test_api_user_check.py[66] - INFO : 开始请求(POST)：http://api.yesapi.net/api/App/User/Check
+2025-09-26 18:38:53,318 - test_api_user_check.py[67] - INFO : 请求参数：{'data': {'app_key': 'F2402005A90D70AEB649F409C8D68D85', 'uuid': '', 'token': '53FF6B9608A1A5B6D294D50A95E307F7FD14CBE9183DD8C5DBF396FDA7C9B7E4'}, 'method': 'POST', 'assert_info': [{'key': 'ret', 'expect_value': 400, 'assert_method': 'equal'}]}
+2025-09-26 18:38:53,402 - test_api_user_check.py[70] - INFO : 请求结果：{'ret': 400, 'data': {}, 'msg': '客户端非法请求：uuid.len应该大于或等于32, 但现在uuid.len = 0', '_t': 1758883133}
+2025-09-26 18:38:53,403 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:53,403 - assert_multi.py[30] - INFO : ret:实际值：400
+2025-09-26 18:38:53,403 - assert_multi.py[31] - INFO : ret:期望值：400
+2025-09-26 18:38:53,404 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:53,404 - conftest.py[21] - INFO : ==============================结束==============================
+2025-09-26 18:38:53,406 - conftest.py[19] - INFO : ==============================开始==============================
+2025-09-26 18:38:53,406 - test_get_last_login_user.py[24] - INFO : 开始请求(POST)：http://api.yesapi.net/api/App/User/GetLastestLoginList
+2025-09-26 18:38:53,407 - test_get_last_login_user.py[25] - INFO : 请求参数：{'num': 20, 'app_key': 'F2402005A90D70AEB649F409C8D68D85'}
+2025-09-26 18:38:53,531 - test_get_last_login_user.py[33] - INFO : 请求结果：{'ret': 200, 'data': {'err_code': 0, 'err_msg': '', 'members': [{'uuid': 'A55B52DCDF6DAA74D0D3E4092156EE49', 'client': '', 'login_time': 1758883133, 'ip': '171.213.189.133', 'username': 'tom', 'role': 'user'}, {'uuid': '0161EBD56486498DE1938EAB5574ABC9', 'client': '', 'login_time': 1758883132, 'ip': '171.213.189.133', 'username': 'luck', 'role': 'user'}, {'uuid': '773A2C153B5007773C0C57D12A63D8BB', 'client': '', 'login_time': 1758881617, 'ip': '118.113.102.28', 'username': 'a', 'role': 'user'}, {'uuid': 'D677E438FE2F1846B3C0D2E4552C7F5E', 'client': '', 'login_time': 1758867945, 'ip': '118.113.102.28', 'username': '5416d7cd6ef195a0f7622a9c56b55e84—!@#$%123456789x', 'role': 'user'}, {'uuid': '4A9C318E56495833555EFBE9F6425946', 'client': '', 'login_time': 1758867945, 'ip': '118.113.102.28', 'username': 'x', 'role': 'user'}, {'uuid': '9123825A982AF4C5E9160E2D28652501', 'client': '', 'login_time': 1758864454, 'ip': '118.113.102.28', 'username': 'a1', 'role': 'user'}, {'uuid': 'B36B587CC3DFBD0B0FC6862654829C25', 'client': '', 'login_time': 1758794751, 'ip': '182.149.73.200', 'username': 'a2', 'role': 'user'}, {'uuid': 'AA1E1E8B7E39BF5A0CFC35621A5452E9', 'client': '', 'login_time': 1758794336, 'ip': '171.222.190.155', 'username': 'greeralec', 'role': 'user'}]}, 'msg': '', '_t': 1758883133}
+2025-09-26 18:38:53,531 - assert_multi.py[28] - INFO : 开始断言:
+2025-09-26 18:38:53,532 - assert_multi.py[30] - INFO : ret:实际值：200
+2025-09-26 18:38:53,532 - assert_multi.py[31] - INFO : ret:期望值：200
+2025-09-26 18:38:53,532 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:53,532 - assert_multi.py[30] - INFO : data.err_code:实际值：0
+2025-09-26 18:38:53,532 - assert_multi.py[31] - INFO : data.err_code:期望值：0
+2025-09-26 18:38:53,533 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:53,533 - assert_multi.py[30] - INFO : data.err_msg:实际值：
+2025-09-26 18:38:53,533 - assert_multi.py[31] - INFO : data.err_msg:期望值：
+2025-09-26 18:38:53,533 - assert_multi.py[32] - INFO : 断言方式:equal
+2025-09-26 18:38:53,534 - conftest.py[21] - INFO : ==============================结束==============================

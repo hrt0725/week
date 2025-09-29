@@ -4,21 +4,23 @@
 # @File    : test_api_login.py
 # @Software: PyCharm
 # @Description :
+import allure
 import ddt
 import pytest
 import requests
 
-from cases.conftest import HostName
 from config.config import AppKey, getDataPath, API_LOGIN
-from utils.assert_multi import am, caseAsserts
-from utils.common import get_nested_value
+from utils.assert_multi import caseAsserts
 from utils.log_utils import createLoger
 from utils.md5 import generateMD5
 
 
 @ddt.ddt()
+@allure.feature("用户模块")
 class TestAPILogin:
 
+    @allure.story("用户登录")
+    @allure.title("用户登录成功")
     @ddt.file_data(getDataPath().joinpath("api_login.yaml"))
     def test_login_success(self, **caseData):
         loger = createLoger()

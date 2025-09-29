@@ -4,6 +4,7 @@
 # @File    : test_api_register.py
 # @Software: PyCharm
 # @Description :
+import allure
 import ddt
 import pytest
 import requests
@@ -16,8 +17,10 @@ from utils.md5 import generateMD5
 
 
 @ddt.ddt()
+@allure.feature("用户模块")
 class TestAPIRegister:
-
+    @allure.story("用户注册")
+    @allure.title("用户注册成功")
     @ddt.file_data(getDataPath().joinpath("api_register.yaml"))
     def test_api_register(self, **caseData):
         loger = createLoger()

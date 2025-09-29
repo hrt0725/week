@@ -800,8 +800,6 @@ class TestDemoParam:
 
 ###### 设计思想：分层设计
 
-
-
 ##### 接口需求分析
 
 ###### 注册接口测试点
@@ -826,7 +824,6 @@ class TestDemoParam:
 | 接口名称 | 用例标题 | 测试数据 | 测试断言 | 测试结果 |
 | -------- | -------- | -------- | -------- | -------- |
 |          |          |          |          |          |
-|          |          |          |          |          |
 
 ##### 数据分离ddt+yaml
 
@@ -836,6 +833,7 @@ class TestDemoParam:
 * 数组：
 * 纯量：
 * 示例：
+
   ```yaml
   username: tom
   password: 123
@@ -848,3 +846,101 @@ class TestDemoParam:
       - natasha
       - jerry
   ```
+
+##### allure测试报告
+
+###### 环境安装配置
+
+* 下载并配置Allure2
+  * 安装配置java环境：要求安装JAVA17/21版本
+  * 安装路径：D:\ProgramFiles\allure-2.35.1\bin配置到系统环境变量
+* 安装插件 allure-pytest
+  `pip install allure-pytest`
+* 验证安装： allure --version
+
+###### allure使用
+
+* 执行pytest 生成测试数据
+  * pytest.ini 配置测试数据存储路径
+    `addopts = -s -v --alluredir=./report/allure-result -clean-alluredir`
+  * 执行：pytest
+* 生成测试报告
+  * alluregenerate数据来源路径-o报告结果路径
+    `allure generate ./report/allure-results -o ./report/allure-html --clean`
+* 查看报告
+  * allure serve ./allure-results
+  * allure open -h 192.168.0.20 -p 8898 ./allure-html
+
+###### allure特性
+
+* @allure.feature("会员管理")	项目模块
+* @allure.story("子模块")	项目子模块，接口名
+* @allure.title("测试用例标题")	用例标题
+* @allure.description("用例描述")	用例详情描述
+* allure.dynamic.title("用例标题")	用例内部动态加载标题
+* allure.step("测试步骤")流程中的测试步骤；
+  * @allure.step()
+  * with allure.step("测试步骤")
+* allure.attach.file(source,name,attachment_type)
+  * source文件路径
+  * name 文件名称
+  * attchment_type
+    `allure.attach.file('D:/Python_project/apiAuto-test/jiq.jpg',name='日志截图',attachment_type=allure.attachment_type.JPG)`
+  * allure.link(url)
+  * allure.issue()关联问题
+    * @allure.link('http://www.baidu.com/')
+    * @allure.issue('http://127.0.0.1:9958/"，‘购物流程异常Bug')
+    * def test_allure_flow_step(self):
+
+##### Jenkins 持续集成
+
+###### 基本概念
+
+CI 持续集成
+
+CD持续交付
+
+###### Jenkins安装
+
+* 基于JAVA1.8+版本
+* 浏览器访问：http://localhost:8080
+
+###### JenkinsPlugin：常用插件
+
+* Python
+* Git
+* HTML Publisher
+* Pipeline
+* Email Extension
+* Email Extension Template
+* Mailer
+* Folders
+* Allure Jenkins
+
+###### 项目构建过程
+
+* 创建项目-FreeStyle 类型：-[Auto-APl-Test]
+* 工作空间：空项目->【built Now】C:\ProgramData\Jenkins\.jenkins\workspace\Auto-API-Test
+  * 本地项目：将项目源代码复制到Jenkins的工作区；
+  * 远程服务器项目：从git/svn服务器下载项目代码到工作区；
+* 项目配置：
+  * 源码管理
+    * None：本地构建-项目源代码在当前服务器；->手动复制项目源码代码到Jenkins工作区;
+    * Git :Git分布式代码管理服务器
+    * Subversion(SVN)：SVN集中式代码管理服务器；
+  * 触发器Trigger
+    * 手动触发-->[Buid Now]
+    * 自动触发
+      * 定时任务：任务计划；`H/2 10,15 * * 1-5`
+      * WebHboK触发：git/svn 代码服务器有新的推送更新，则自动触发；（Git服务器配置，公网运行-Jenkins必须在公网)
+  * Build Steps 构建
+    * Windows系统构建：-Execute Windows batch command
+      * 切换目录：cd d:/laa/bb
+      * 安装插件：pip install-r requirements.txt
+      * 执行用例： pytest ./test_cases/ -s -v
+      * python run.py
+    * Linux系统构建-Execute shell
+    * Execute Python script
+  * 构建后操作
+    * 邮件通知
+    * 结果报告
