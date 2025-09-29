@@ -943,4 +943,13 @@ CD持续交付
     * Execute Python script
   * 构建后操作
     * 邮件通知
-    * 结果报告
+      ![1759136047111](image/WebAutoTest/1759136047111.png)
+
+      ![1759135119589](image/WebAutoTest/1759135119589.png)
+      项目配置：
+      ![1759136774831](image/WebAutoTest/1759136774831.png)
+    * 结果报告-allure-report
+
+      * Results: path report/allure-results
+      * 高级-Report:pathreport/allure-html
+      * configTools设置：Allure Commandline
