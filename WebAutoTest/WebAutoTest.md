@@ -953,3 +953,41 @@ CD持续交付
       * Results: path report/allure-results
       * 高级-Report:pathreport/allure-html
       * configTools设置：Allure Commandline
+
+##### gitee码云项目管理
+
+* 注册Gitee账户
+* 本地安装git
+* 创建Gitee项目
+* 远程项目克隆到本地 ：`git clone url`
+
+###### 本地初始化ssh秘钥
+
+* cmd 命令行输入 ssh-keygen，一路回车
+  * 本地路径：C:\Users\username\\.ssh
+
+###### Gitee和本地关联
+
+* 将pub公钥设置在gitee-设置-安全设置-ssh公钥；
+* Gitee的用户名和邮箱在本地进行全局设置；
+  * git config --global user.name 'TestDev"
+  * git config --global user.email '931665795@qq.com'
+  * git config --list    #检查确认
+
+###### git常用命令
+
+* 查看状态：git status
+* 添加文件：git add filename
+* 提交文件：git commit-m"说明"
+* 远程库下载：git pull origin master
+* 本地库上传：git push originmaster
+* 克隆远程库：git clone url
+
+###### Jenkins gitee集成
+
+* 安装Gitee插件
+* 全局工具设置：git安装路径：
+* gtee 设置私人令牌：个人头像->设置->安全设置->私人令牌
+* jenkins项目的【源码管理】-[git]
+  * 配置gitee项目地址
+  * 设置安全认证
