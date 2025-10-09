@@ -804,7 +804,7 @@ class TestDemoParam:
 
 ###### 注册接口测试点
 
-* 常规信息：支持新I旧接口地址，支持HTTP/HTTPS协议，请求方式支持get/post;
+* 常规信息：支持新旧接口地址，支持HTTP/HTTPS协议，请求方式支持get/post;
 * 接口参数：
   * 所有必填项： app-key, usermame,password
   * 必填项+选填项：return_data,ext_info:
@@ -873,9 +873,9 @@ class TestDemoParam:
 
 ###### allure特性
 
-* @allure.feature("会员管理")	项目模块
-* @allure.story("子模块")	项目子模块，接口名
-* @allure.title("测试用例标题")	用例标题
+* @allure.feature("会员管理")	        项目模块
+* @allure.story("子模块")	                项目子模块，接口名
+* @allure.title("测试用例标题")	        用例标题
 * @allure.description("用例描述")	用例详情描述
 * allure.dynamic.title("用例标题")	用例内部动态加载标题
 * allure.step("测试步骤")流程中的测试步骤；
