@@ -223,8 +223,7 @@
     * `-n 5`：迭代次数
     * `-e 环境数据.json`
     * `-d 请求参数数据文件.csv`
-    * `-r html`导出生成报告的格式；
-    * `--reporters html`
+    * `--reporters html`导出生成报告的格式；
     * `--reporter-html-export filename`
 
 ###### **接口Mock**
