@@ -172,7 +172,7 @@
   * 获取字典的值：
     * userInfo["key"]
     * userInfo.get("key")
-    * userInfo.setdefault("key")：key不存在则添加进去；
+    * userInfo.setdefault("key",value)：key不存在则添加进去；
   * 字典更新：
     * userInfo["key"]=value
     * userInfo.setdefault("key",value)：key不存在则加入；

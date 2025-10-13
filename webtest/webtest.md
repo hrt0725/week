@@ -1,19 +1,19 @@
-**Web前端开发测试**
+#### **Web前端开发测试**
 
-**Web基础**
+##### **Web基础**
 
-**Web系统架构**
+##### **Web系统架构**
 
 * B/S：浏览器服务器；通过浏览器访问Web应用服务器；
 * C/S：客户端服务器；通过安装在PC/移动端的应用程序访问服务器：
 
-常见Web应用平台：
+##### 常见Web应用平台：
 
 * JAVA平台：Java + Linux/Unix + Oracle + Tomcat /JBoos;
 * LAMP平台：PHP + Linux + MariaDB + Apache/Nginx;
 * ASP.NET平台: ASP(C#/.NET) + Windows + SQLServer + IIS;
 
-Web工作原理
+##### Web工作原理
 
 * 工作过程：域名解析--> 发起TCP的3次握手--> 建立TCP连接后发起http请求--> 服务器响应
   http 请求，浏览器得到html代码--> 浏览器解析html代码，并请求html代码中的资源
@@ -41,12 +41,12 @@ Web工作原理
     * 二级域名：baiu.com   jd.com  企业机构等全网的唯一标识；
     * 三级域名：map.baidu.com   news.baidu.com 企业内部进行业务区分；
 
-**Web服务和应用服务**
+##### **Web服务和应用服务**
 
 * Web服务：用于处理服务器的静态资源包括（HTML，CSS，JS）；比如Nginx服务器；
 * 应用服务：用来处理业务逻辑数据交互；比如数据库服务器，订单服务器；
 
-**服务器架构**
+##### **服务器架构**
 
 * 单体服务器
   * 项目的所有业务逻辑，数据存储，应用解析等服务全部部署在同一台服务上；
@@ -58,14 +58,14 @@ Web工作原理
 * 微服务
   * 按照业务需要，把所有业务进行粒度更小的拆分，
 
-**数据库服务**
+##### **数据库服务**
 
 * 数据库读写分离，一主多从；
 * 缓存数据，Redis缓存非结构化的数据，Session少量的临时数据；
 
-**Web前端开发基础**
+##### **Web前端开发基础**
 
-**HTML基础**
+##### **HTML基础**
 
 * 概念：超文本标记语言；用结构化标签定义页面的架构；
 * 常用标签
@@ -108,9 +108,9 @@ Web工作原理
     * 内嵌类型：`<frame> <iframe> <frameset>`
     * 容器类型：`<div> <span>`
 
-**CSS基础**
+##### **CSS基础**
 
-**常见样式**
+###### **常见样式**
 
 * 轮廓界面：width，height，border，background
 * 文字样式：color,font-size,font-weight,font-family,text-align
@@ -125,7 +125,7 @@ Web工作原理
   * padding：内间距
   * clear：清除前面浮动的影响
 
-**样式使用**
+###### **样式使用**
 
 * 行内样式：在标签内添加属性 style
   * `style="width:100%; height:120px; border: 1px solid red";`
@@ -135,14 +135,14 @@ Web工作原理
     * 类选择器：.btn{}
     * 标签选择器：input{}
 
-**JavaScript基础**
+##### **JavaScript基础**
 
-**js的使用**
+###### **js的使用**
 
 * html中任意位置，内部使用 `<script> code.... </script>`
 * 外部使用 `<script src="....."></script>`
 
-**基础语法规则**
+###### **基础语法规则**
 
 * 变量声明
   * var name='harry'
@@ -176,7 +176,7 @@ Web工作原理
   * ||：逻辑或，两个条件满足其一，结果为真(true)，否则为假(false)；
   * !：逻辑非，条件取相反结果；
 
-**流程控制语句**
+###### **流程控制语句**
 
 * if条件判断
   * if(){  } else {  }
@@ -235,7 +235,7 @@ Web工作原理
   * break:结束所有语句的执行；
   * contiune：结束当前的循环，进入下一次循环；
 
-**函数和事件**
+###### **函数和事件**
 
 * 函数 function fname(){}
   * 函数定义：function funName(paramName){}
