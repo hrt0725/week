@@ -144,7 +144,7 @@
   * 设置弱网选项
     Proxy > Throttle Settings
 
-##### **AdbMonkey 稳定性测试**
+##### **Adb Monkey 稳定性测试**
 
 ###### **环境搭建**
 
