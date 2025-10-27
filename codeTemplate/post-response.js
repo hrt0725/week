@@ -27,8 +27,6 @@ pm.test("是否包含响应头：Content-Type", function () {
     pm.response.to.have.header("Content-Type");
 });
 
-
-
 pm.test("验证相应体中指定的字段存在", function () {
     pm.expect(pm.response.json().data).to.have.include.keys(["err_msg", "err_code"])
 })
@@ -37,7 +35,6 @@ pm.test("判断是否有uuid字段", function () {
     var jsonData = pm.response.json();
     pm.expect(jsonData.data).to.have.property("uuid")
 });
-
 
 pm.test("判断是否有token字段", function () {
     var jsonData = pm.response.json();
