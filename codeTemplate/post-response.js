@@ -23,7 +23,7 @@ pm.test("响应时间是否小于200ms", function () {
     pm.expect(pm.response.responseTime).to.be.below(200);
 });
 
-pm.test("是否包含响应头：Content-Type", function () {
+pm.test("是否包含响应头:Content-Type", function () {
     pm.response.to.have.header("Content-Type");
 });
 
@@ -47,6 +47,3 @@ pm.test("判断是否有role字段", function () {
 });
 
 console.log(pm.variables.get("aa"));
-
-
-
